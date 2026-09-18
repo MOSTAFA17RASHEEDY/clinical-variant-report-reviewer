@@ -227,7 +227,61 @@ context.
 
 ## Phase 3 — AI report-drafting agent
 
-Not started.
+- **Decision, for later**: user will paste their Gemini key for now, but
+  Phase 5's UI must add a Settings tab where users add their own free key
+  from the browser (same "bring your own key" pattern as Genomic Evidence
+  Copilot) instead of relying on a shared `.env` key.
+- [x] `server/src/lib/gemini.ts` — raw `fetch` against the Gemini REST API
+      (no SDK — Genomic Evidence Copilot found the `@google/generative-ai`
+      SDK added a ~95s cold-start call plain fetch didn't have, and this
+      project has no other need for an SDK's extra surface). Retries on 429
+      with backoff.
+- [x] **Verified the actual key live before picking a model**, rather than
+      assuming: listed all available models, and specifically avoided
+      `gemini-flash-latest` because Genomic Evidence Copilot's PLAN.md
+      documents it resolving to a brand-new preview capped at 20
+      requests/day — too tight for drafting ~39 variants in one run. Used
+      `gemini-flash-lite-latest` instead (verified live: resolves to
+      `gemini-3.5-flash-lite`, returns valid structured JSON).
+- [x] `server/src/lib/report-drafter.ts` — the citation design: citations
+      are built entirely from Phase 1/2's own real data (`buildCitations`),
+      never invented by the model. Gemini's only job is to explain evidence
+      that already exists and is already trustworthy, with inline `[n]`
+      markers matching the provided numbered list. The prompt explicitly
+      forbids outside knowledge about the gene/condition, forbids stating a
+      diagnosis or clinical recommendation, and requires saying evidence is
+      thin rather than filling gaps with assumptions.
+- [x] Citation compliance is verified, not just requested: after each draft,
+      the code extracts every `[n]` used and checks it against the real
+      citation list, flagging `citationCoverageWarning` if a claim is
+      uncited or cites a number that doesn't exist — surfaced in the output
+      for Phase 4's human reviewer, never silently trusted.
+- [x] Tested `buildCitations` against 3 fixtures (ClinVar-sourced,
+      simplified-scorer with evidence, simplified-scorer with none) before
+      running any real Gemini calls.
+- [x] Not every variant gets an individually-drafted paragraph — defined
+      "significant" as: a real ClinVar classification (always worth
+      reporting), OR scorer confidence above "low", OR HIGH/MODERATE
+      predicted impact. On the real 464-variant dataset this is 39
+      variants; the other 425 (mostly intronic) are counted and
+      summarized by consequence type, not hidden, but not drafted
+      individually either — a real report wouldn't discuss every intronic
+      SNP by name.
+- [x] **Ran on all 39 real significant variants.** 39/39 drafted
+      successfully, 0 failures. Found and fixed one real bug from testing
+      against actual output: the model sometimes combines adjacent
+      citations into one bracket (`[1, 2]`) instead of `[1] [2]` separately
+      — the citation-coverage check's regex only matched single-number
+      brackets, so a fully-compliant draft was wrongly flagged as missing
+      citations. Fixed by parsing comma-separated numbers inside a bracket
+      too, then re-ran: 0 citation warnings.
+- [x] Every draft carries `status: "ai_drafted_pending_review"` and the
+      output file's top-level `disclaimer` field states plainly it's a
+      non-clinical-grade AI draft — Phase 4 builds the actual approval
+      workflow this status feeds into.
+- [x] `server/src/scripts/draft-report.ts` (`npm run draft-report`) writes
+      `data/annotated/draft-report.json`: 39 drafts + citations, the 425
+      non-significant variants summarized by consequence, 0 failures.
 
 ## Phase 4 — Human-in-the-loop safeguards
 

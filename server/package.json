@@ -6,10 +6,12 @@
   "scripts": {
     "annotate": "tsx src/scripts/annotate.ts",
     "classify": "tsx src/scripts/classify.ts",
+    "draft-report": "tsx src/scripts/draft-report.ts",
     "test:clinvar": "tsx src/scripts/test-clinvar.ts",
     "test:annotate": "tsx src/scripts/test-annotate-pipeline.ts",
     "test:scorer": "tsx src/scripts/test-acmg-scorer.ts",
     "test:classify": "tsx src/scripts/test-classify-pipeline.ts",
+    "test:drafter": "tsx src/scripts/test-report-drafter.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },

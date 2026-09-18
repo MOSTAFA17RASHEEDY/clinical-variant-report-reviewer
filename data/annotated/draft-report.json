@@ -1,0 +1,1187 @@
+{
+  "generatedAt": "2026-09-18T15:53:50.935Z",
+  "status": "pending_review",
+  "disclaimer": "This report is an AI-assisted DRAFT using a simplified, non-clinical-grade scoring system. It is not a validated clinical result and must not inform medical decisions until a qualified human reviewer explicitly approves it.",
+  "totalVariantsReviewed": 464,
+  "significantVariantCount": 39,
+  "drafts": [
+    {
+      "chrom": "chr20",
+      "pos": 10005839,
+      "gene": "PARAL1",
+      "hgvsc": "ENST00000449270.1:n.433-670dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the PARAL1 gene is located in a non-coding region (an intron_variant), meaning it is not expected to alter protein function [2]. This variant is completely absent from all known variant databases, so there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this variant is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10009223,
+      "gene": "PARAL1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (downstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This draft report describes a non-coding variant located in a transcript exon of the PARAL1 gene on chromosome 20, which is not expected to alter protein function [2]. The variant is entirely absent from all known variant databases, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment, this is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10014155,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000437504.1:n.394+27649_394+27654dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This draft report describes a genetic variant in the ANKEF1 gene located in a non-coding region of the DNA, meaning it is not expected to alter protein function [2]. This variant is completely absent from all known variant databases, meaning there is no population frequency data available at all [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this variant is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10018406,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000437504.1:n.395-24712dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft classifies the ANKEF1 genetic variant at chr20:10018406 as a Variant of Uncertain Significance (VUS) with medium confidence using a simplified, non-clinical-grade scoring system, not a real ACMG assessment or ClinVar. The variant is a duplication located in a non-coding region of the transcript (intron variant) and is not expected to alter protein function [2]. Additionally, this variant has not been found in any known variant database, meaning there is no population frequency data available at all [1].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10020789,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000437504.1:n.395-22332_395-22328dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft describes the ANKEF1 gene variant ENST00000437504.1:n.395-22332_395-22328dup, which is located in a non-coding region as an intron variant (a change in the DNA sequence within a non-coding section of a gene) and is not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10021811,
+      "gene": "SNAP25-AS1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (downstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft classifies the SNAP25-AS1 gene variant as a Variant of Uncertain Significance (VUS) with medium confidence, based on a simplified scoring system rather than a standard clinical assessment [1, 2]. The variant is an intronic change that is completely absent from known variant databases, meaning there is no population frequency data available [1]. Additionally, its expected downstream consequence is not anticipated to alter protein function [2]. Because the evidence is very limited, this remains a pending-review draft and not a clinical diagnosis [1, 2].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10023575,
+      "gene": "SNAP25-AS1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (downstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary report discusses the SNAP25-AS1 gene variant located at chr20:10023575, which involves a non_coding_transcript_exon_variant [1]. The available evidence shows that this variant is not found in any known variant database and lacks population frequency data [1], and its downstream_gene_variant consequence is not expected to alter protein function [2]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10027382,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-734dup",
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.362-734dup in the SNAP25-AS1 gene is located in an intron and non-coding transcript, which is not expected to alter protein function [2]. This variant is completely absent from any known variant databases, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this is a draft classification of Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10028111,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-1463dup",
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.362-1463dup in the SNAP25-AS1 gene is located in a non-coding region, meaning it is an intron variant and non-coding transcript variant not expected to alter protein function [2]. This variant is not found in any known variant database, so there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10028274,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-1626dup",
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.362-1626dup is located in the non-coding transcript SNAP25-AS1 [1, 2]. Current evidence shows that this variant type is not expected to alter protein function [2] and has not been found in any known variant database [1]. This preliminary classification is a Variant of Unknown Significance (VUS) with medium confidence, derived from a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10029195,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-2547_362-2546insTT",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.362-2547_362-2546insTT is located in an intron, which is a non-coding region of the gene, and this change is not expected to alter protein function [2]. This variant is completely absent from all known variant databases, meaning there is no population frequency data available for it [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this variant is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10029228,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-2580_362-2579insCCTCCC",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The SNAP25-AS1 gene variant ENST00000421143.7:n.362-2580_362-2579insCCTCCC is located in a non-coding region (an intron_variant, which is a change in the DNA sequence that sits outside the protein-coding parts of a gene) [2]. Current evidence shows this variant is completely absent from any known variant databases, meaning there is no population frequency data available at all [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10029889,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.362-3241dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant ENST00000421143.7:n.362-3241dup in the SNAP25-AS1 gene is an intron variant [2], which means it is located in a non-coding region and is not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this variant is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10031984,
+      "gene": "ANKEF1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (upstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft classifies the ANKEF1 gene variant (-/G intron variant at chr20:10031984) as a Variant of Uncertain Significance (VUS) with medium confidence, derived from a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar. The variant is not found in any known variant database, meaning there is no population frequency data at all [1]. Additionally, its predicted consequence as an upstream gene variant is not expected to alter protein function [2].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10034343,
+      "gene": "ANKEF1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (upstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary report describes a variant in the ANKEF1 gene located at chromosome 20 position 10034343, which involves a deletion and insertion of AT in an intron, meaning a non-coding region of DNA [2]. The variant is completely absent from all known databases with no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10046587,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.820+892_820+893insGTTA",
+      "hgvsp": null,
+      "consequence": "3_prime_UTR_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The ANKEF1 variant ENST00000378392.6:c.820+892_820+893insGTTA is located in the 3_prime_UTR_variant region and is not found in any known variant database, meaning there is no population frequency data at all [1]. Current evidence indicates that its consequence, classified as an intron_variant, is not expected to alter protein function [2]. This preliminary draft classification tier is a Variant of Uncertain Significance (VUS) with medium confidence, derived from a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10048220,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.821-1151_821-1150dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The ANKEF1 gene variant c.821-1151_821-1150dup is located in an intron, which is a non-coding region of DNA not expected to alter protein function [2]. This variant is completely absent from all known variant databases, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is classified as a Variant of Unknown Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10049540,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.971T>A",
+      "hgvsp": "ENSP00000367644.1:p.Leu324Gln",
+      "consequence": "missense_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "low",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "BP4-like (simplified scoring signal)",
+          "description": "Both SIFT (tolerated) and PolyPhen (benign) predict a benign effect",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant ANKEF1 c.971T>A is a missense change located at chromosome 20 position 10049540 [1]. Current computational tools, specifically SIFT and PolyPhen, both predict a benign effect [1]. This draft classification is a Variant of Uncertain Significance (VUS) with low confidence, derived from a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar [1].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10050607,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.1643+395dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The ANKEF1 gene variant c.1643+395dup is an intron variant, which means it is located in a non-coding section of the gene and is not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10056463,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.*814_*817dup",
+      "hgvsp": null,
+      "consequence": "3_prime_UTR_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (3_prime_UTR_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The ANKEF1 gene variant c.*814_*817dup is located in the 3_prime_UTR_variant region, which is a part of the transcript not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is currently considered a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10056497,
+      "gene": "ANKEF1",
+      "hgvsc": "ENST00000378392.6:c.*871_*878dup",
+      "hgvsp": null,
+      "consequence": "3_prime_UTR_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (3_prime_UTR_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ANKEF1 c.*871_*878dup is a 3_prime_UTR_variant located in the non-coding regulatory region at the end of the gene [2]. Currently, this variant has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence, and the specific consequence is not expected to alter protein function [2].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10060125,
+      "gene": "ANKEF1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (downstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft report evaluates an intronic variant in the ANKEF1 gene, meaning it is located in a non-coding region and is not expected to alter protein function [2]. This genetic change has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this variant is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10061054,
+      "gene": "ANKEF1",
+      "hgvsc": null,
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (downstream_gene_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This draft report describes an insertion variant, -/TATG, located in an intron (a non-coding region of DNA) of the ANKEF1 gene [1, 2]. Current evidence indicates this downstream gene variant is not expected to alter protein function [2], and it has not been found in any known variant database [1]. This preliminary classification is a Variant of Uncertain Significance (VUS) with medium confidence, determined using a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10090291,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.361+13995dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant ENST00000421143.7:n.361+13995dup in the SNAP25-AS1 gene is an intron variant, which means it is located in a non-coding part of the transcript and is not expected to alter protein function [2]. This variant is completely absent from any known variant databases, meaning there is no population frequency data available for it [1]. Based on a simplified, non-clinical-grade scoring system—rather than a real ACMG assessment or ClinVar—this is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10107173,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-2780_253-2779dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the SNAP25-AS1 gene (ENST00000421143.7:n.253-2780_253-2779dup, located in an intron) is an intron variant and non_coding_transcript_variant, meaning it is found in a non-coding region and is not expected to alter protein function [2]. This variant is completely absent from any known variant database, meaning there is no population frequency data available at all [1]. Based on a simplified, non-clinical-grade scoring system (not a real ACMG assessment or ClinVar), this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10108321,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-3929_253-3927dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary draft classifies the gene variant ENST00000421143.7:n.253-3929_253-3927dup in SNAP25-AS1 as a Variant of Uncertain Significance with medium confidence based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar. The variant is located in an intron, meaning it is a non-coding region, and its consequence as an intron and non_coding_transcript_variant is not expected to alter protein function [2]. Additionally, this variant was not found in any known variant database, meaning there is no population frequency data available at all [1].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10116454,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-12062_253-12060dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.253-12062_253-12060dup in the SNAP25-AS1 gene is an intron variant, which is located in a non-coding part of the transcript [2] and has not been found in any known variant database [1]. The available evidence shows that this consequence is not expected to alter protein function [2]. This draft classification is a Variant of Uncertain Significance (VUS) with medium confidence, derived from a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10117713,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-13319A>T",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.253-13319A>T is an intron variant located within a non-coding transcript of the SNAP25-AS1 gene on chromosome 20 [2]. This change is not expected to alter protein function [2], and it has not been found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10118084,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-13728_253-13690del",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant is a deletion located in a non-coding region of the SNAP25-AS1 gene (an intron variant) and is completely absent from known variant databases [1, 2]. Because this type of genetic change is not expected to alter protein function, the current evidence is very limited [2]. This draft has been assigned a Variant of Uncertain Significance (VUS) tier with medium confidence based on a simplified, non-clinical-grade scoring system rather than a real clinical assessment.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10118464,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-14077_253-14070dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "This preliminary report evaluates the SNAP25-AS1 variant (ENST00000421143.7:n.253-14077_253-14070dup) located in an intron region, which means it sits within a non-coding portion of the transcript [2]. The available evidence shows that this variant is not found in any known variant database and lacks population frequency data [1], and its specific consequence as an intron variant is not expected to alter protein function [2]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10126684,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-22291_253-22290dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the SNAP25-AS1 gene (ENST00000421143.7:n.253-22291_253-22290dup) is located in an intron, which is a non-coding region of DNA, and is not expected to alter protein function [2]. This variant has not been found in any known variant database and lacks any population frequency data [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10139560,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-35166_253-35165insTTGTGGCCT",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.253-35166_253-35165insTTGTGGCCT is located in an intron, which is a non-coding region of the gene, and this consequence is not expected to alter protein function [2]. This change is completely absent from any known variant database, meaning there is no population frequency data available [1]. It is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence, based on a simplified and non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10149659,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-45266_253-45265dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the SNAP25-AS1 gene (ENST00000421143.7:n.253-45266_253-45265dup) is located within an intron, which is a non-coding region of DNA not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. It is currently placed in a Variant of Uncertain Significance (VUS) tier with medium confidence based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10149698,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.253-45305_253-45304dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the SNAP25-AS1 gene (ENST00000421143.7:n.253-45305_253-45304dup) is located in an intron, which is a non-coding region of the transcript, and is not expected to alter protein function [2]. This variant is not found in any known variant database, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft classification is a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10161382,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.252+35436dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The gene change ENST00000421143.7:n.252+35436dup is located in a non-coding part of the SNAP25-AS1 gene, meaning it is an intron variant that is not expected to alter protein function [2]. This variant is completely absent from any known variant databases, meaning there is no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10173574,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.252+23236_252+23244dup",
+      "hgvsp": null,
+      "consequence": "non_coding_transcript_exon_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant in the SNAP25-AS1 gene (ENST00000421143.7:n.252+23236_252+23244dup) is an intron variant, meaning it is located within a non-coding transcript region and is not expected to alter protein function [2]. This variant is completely absent from all known variant databases with no population frequency data available [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this is classified as a Variant of Uncertain Significance (VUS) with medium confidence.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10174391,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.252+22427dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant ENST00000421143.7:n.252+22427dup is located in an intron, which is a non-coding region of the SNAP25-AS1 gene, and is not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. It is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence, based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10174396,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.252+22422dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The genetic variant ENST00000421143.7:n.252+22422dup in the SNAP25-AS1 gene is located within an intron (an intervening sequence within a gene) and is not expected to alter protein function [2]. This variant has not been found in any known variant database, meaning there is no population frequency data available [1]. This is currently considered a Variant of Uncertain Significance (VUS) with medium confidence, based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar.",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    },
+    {
+      "chrom": "chr20",
+      "pos": 10177942,
+      "gene": "SNAP25-AS1",
+      "hgvsc": "ENST00000421143.7:n.252+18875_252+18876dup",
+      "hgvsp": null,
+      "consequence": "intron_variant",
+      "tier": "VUS",
+      "classificationSource": "simplified-scorer",
+      "confidence": "medium",
+      "citations": [
+        {
+          "index": 1,
+          "kind": "scoring-evidence",
+          "label": "PM2-like (simplified scoring signal)",
+          "description": "Not found in any known variant database (no population frequency data at all)",
+          "url": null
+        },
+        {
+          "index": 2,
+          "kind": "scoring-evidence",
+          "label": "BP7-like (simplified scoring signal)",
+          "description": "Consequence (intron_variant, non_coding_transcript_variant) is not expected to alter protein function",
+          "url": null
+        }
+      ],
+      "summary": "The variant ENST00000421143.7:n.252+18875_252+18876dup in the SNAP25-AS1 gene is an intron variant located in a non-coding transcript [2] and has not been found in any known variant database [1]. Based on a simplified, non-clinical-grade scoring system rather than a real ACMG assessment or ClinVar, this draft is currently classified as a Variant of Uncertain Significance (VUS) with medium confidence, especially since the consequence is not expected to alter protein function [2].",
+      "citationCoverageWarning": false,
+      "status": "ai_drafted_pending_review"
+    }
+  ],
+  "failures": [],
+  "nonSignificantSummary": {
+    "count": 425,
+    "note": "Remaining variants were not individually drafted — low-confidence, low/modifier-impact calls a real report also wouldn't discuss variant-by-variant. Counted here for completeness, not hidden.",
+    "byConsequence": {
+      "intron_variant": 353,
+      "non_coding_transcript_exon_variant": 55,
+      "splice_polypyrimidine_tract_variant": 2,
+      "splice_region_variant": 2,
+      "5_prime_UTR_variant": 3,
+      "synonymous_variant": 2,
+      "3_prime_UTR_variant": 7,
+      "stop_lost": 1
+    }
+  }
+}
