@@ -34,6 +34,7 @@ docker run --rm \
       --assembly GRCh38 --species homo_sapiens \
       $MODE_ARGS \
       --fasta "/opt/vep/.vep/${FASTA}" \
-      --hgvs --check_existing --symbol --biotype --numbers --canonical
+      --hgvs --check_existing --symbol --biotype --numbers --canonical \
+      --sift b --polyphen b --af
 
 echo "Wrote data/annotated/NA12878.vep.json"

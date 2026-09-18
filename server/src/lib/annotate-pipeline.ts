@@ -8,9 +8,13 @@ export type AnnotatedVariant = {
   rsIds: string[];
   gene: string | null;
   consequence: string;
+  consequenceTerms: string[];
   impact: string | null;
   hgvsc: string | null;
   hgvsp: string | null;
+  siftPrediction: string | null;
+  polyphenPrediction: string | null;
+  populationAf: number | null;
   clinvar: {
     source: "rsid" | "coordinate" | "none";
     exactMatch: boolean;
@@ -31,6 +35,24 @@ export function parseVepJsonLines(raw: string): VepVariant[] {
     .map((line) => JSON.parse(line) as VepVariant);
 }
 
+// --af's 1000-Genomes frequency data is stored per-allele, per-population
+// (e.g. {"T": {"af": 0.23, "eas_af": 0.1, ...}}) — take the highest value
+// found anywhere as a conservative "at least this common" signal, since the
+// scorer only needs "is this plausibly common" rather than a specific
+// population breakdown.
+function extractMaxPopulationAf(v: VepVariant): number | null {
+  let max: number | null = null;
+  for (const cv of v.colocated_variants ?? []) {
+    if (!cv.frequencies) continue;
+    for (const alleleFreqs of Object.values(cv.frequencies)) {
+      for (const val of Object.values(alleleFreqs)) {
+        if (typeof val === "number" && (max === null || val > max)) max = val;
+      }
+    }
+  }
+  return max;
+}
+
 export async function annotateVariant(v: VepVariant): Promise<AnnotatedVariant> {
   const tc = pickTranscriptConsequence(v);
   const gene = tc?.gene_symbol ?? null;
@@ -46,9 +68,13 @@ export async function annotateVariant(v: VepVariant): Promise<AnnotatedVariant> 
     rsIds,
     gene,
     consequence: v.most_severe_consequence,
+    consequenceTerms: tc?.consequence_terms ?? [v.most_severe_consequence],
     impact: tc?.impact ?? null,
     hgvsc,
     hgvsp: tc?.hgvsp ?? null,
+    siftPrediction: tc?.sift_prediction ?? null,
+    polyphenPrediction: tc?.polyphen_prediction ?? null,
+    populationAf: extractMaxPopulationAf(v),
   };
 
   if (rsIds.length > 0) {

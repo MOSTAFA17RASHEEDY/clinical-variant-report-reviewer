@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "annotate": "tsx src/scripts/annotate.ts",
+    "classify": "tsx src/scripts/classify.ts",
     "test:clinvar": "tsx src/scripts/test-clinvar.ts",
     "test:annotate": "tsx src/scripts/test-annotate-pipeline.ts",
+    "test:scorer": "tsx src/scripts/test-acmg-scorer.ts",
+    "test:classify": "tsx src/scripts/test-classify-pipeline.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },

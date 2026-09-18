@@ -67,9 +67,29 @@ docker run --rm \
       --assembly GRCh38 --species homo_sapiens \
       --cache --offline --dir_cache /opt/vep/.vep \
       --fasta /opt/vep/.vep/Homo_sapiens.GRCh38.dna.chromosome.20.fa.gz \
-      --hgvs --check_existing --symbol --biotype --numbers
+      --hgvs --check_existing --symbol --biotype --numbers --canonical \
+      --sift b --polyphen b --af
 ```
 
 `--json` gives one structured record per variant (gene, consequence,
 transcript, HGVSc/p, existing rsIDs, etc.) that `server/src/scripts/annotate.ts`
-(Phase 1, next step) reads to drive the ClinVar cross-reference.
+(Phase 1) reads to drive the ClinVar cross-reference.
+
+`--sift`/`--polyphen`/`--af` (added for Phase 2's scorer) add in-silico
+deleteriousness predictions and 1000-Genomes population frequency for known
+variants — real caveats found by testing against the actual 464-variant VCF,
+not assumed:
+- `--af_gnomade`/`--af_gnomadg` (gnomAD frequency) **cannot** be used with
+  `--database` mode at all — VEP itself refuses at startup, since gnomAD
+  data is only cache-bundled, never live-queryable.
+- `--sift b --polyphen b` **do** work in `--database` mode: the real run
+  returned predictions for all missense variants (6 SIFT, 4 PolyPhen out of
+  464 total variants — most of this region is intronic, so few variants are
+  even eligible for a missense prediction).
+- Plain `--af` (1000 Genomes) came back **empty for all 464 real variants**,
+  including ones with real, well-established rsIDs. So population frequency
+  is a genuine, confirmed gap in `--database` mode — not something this
+  project can rely on without the offline cache. The scorer in
+  `server/src/lib/acmg-scorer.ts` treats "no frequency data" as "unknown",
+  never "rare", specifically because of this gap — it must not quietly
+  overstate pathogenicity from a missing data source.

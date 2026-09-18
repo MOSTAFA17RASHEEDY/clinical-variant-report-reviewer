@@ -168,7 +168,62 @@ context.
 
 ## Phase 2 — Simplified ACMG-inspired scoring
 
-Not started.
+- [x] `server/src/lib/acmg-scorer.ts` — the simplified scorer, labeled
+      "SIMPLIFIED — NOT A CLINICAL-GRADE CLASSIFIER" directly in its module
+      doc comment (carried through to the UI in Phase 5). Implements a small,
+      honest subset of the real ACMG/AMP evidence codes (which has ~28 in
+      total): predicted loss-of-function (PVS1-like), rarity/absence from
+      population data (PM2-like), SIFT+PolyPhen agreement (PP3-like /
+      BP4-like), and population allele frequency (BA1-like / BS1-like).
+      Evidence is combined via a simplified weighted-sum threshold — not the
+      real ACMG combining rules (specific criteria combinations, not a plain
+      sum) — documented as a deliberate simplification in the code.
+      Confidence level reflects how much evidence exists at all (not how
+      "sure" the tier is): a VUS from zero evidence and a VUS from
+      conflicting evidence are both real, different outcomes.
+- [x] Before running against real data, added `--sift b --polyphen b --af`
+      to the VEP run and **tested each flag's actual behavior in
+      `--database` mode against the real 464-variant VCF** rather than
+      assuming they'd all work the same as in offline-cache mode:
+      - `--af_gnomade`/`--af_gnomadg` (gnomAD): VEP refuses outright with
+        `--database` — gnomAD is cache-only, confirmed by the error message
+        itself, not by reading docs.
+      - `--sift`/`--polyphen`: **do work live** — real run returned
+        predictions for all missense variants (6 SIFT, 4 PolyPhen calls
+        across 464 variants; most of this test region is intronic, so few
+        variants even qualify for a missense prediction).
+      - `--af` (1000 Genomes): **returned empty for all 464 real variants**,
+        including ones with well-established rsIDs — a genuine, confirmed
+        gap in `--database` mode, not a bug in this project's code. The
+        scorer treats missing population frequency as "unknown" (no
+        evidence generated either way), never as "must be rare" — a data
+        gap must not silently inflate a pathogenicity score.
+- [x] `server/src/lib/classify-pipeline.ts` — routes each variant to either
+      its real ClinVar classification (only when there's an exact-match
+      record that actually carries a clinical significance string — being
+      merely *registered* in ClinVar with no interpretation, like Phase 1's
+      SNAP25-AS1 finding, correctly still routes to the scorer) or the
+      simplified scorer. Tested against 3 fixtures (confirmed ClinVar hit,
+      ClinVar record with no classification, no ClinVar data) before running
+      on real data — all routed correctly.
+- [x] `server/src/scripts/classify.ts` (`npm run classify` in `server/`) —
+      reads Phase 1's `variants.json`, classifies all 464, writes
+      `data/annotated/classified-variants.json`.
+- [x] **Ran on the real 464-variant dataset.** Honest result: all 464 landed
+      as **VUS** (0 Pathogenic/Likely Pathogenic/Likely Benign/Benign). This
+      is a direct, understandable consequence of two real, already-documented
+      facts rather than a bug: (1) this test region has 0 confirmed ClinVar
+      classifications (Phase 1 finding — not a disease-gene-dense area), and
+      (2) `--database` mode can't supply population frequency (this phase's
+      finding), which removes the BA1/BS1 evidence this scorer needs to
+      confidently call "Likely Benign"/"Benign" for the mostly-intronic
+      variants here. 463/464 got one weak benign-leaning signal
+      (non-coding consequence); by design, a single supporting-level signal
+      alone isn't enough to move off VUS — mirroring the real ACMG
+      framework's own requirement that Likely Benign/Pathogenic needs
+      *multiple* combined criteria, not just one. This is a real stress
+      test of the scorer's honesty under a genuinely uninformative region,
+      not a curated "nice-looking" result.
 
 ## Phase 3 — AI report-drafting agent
 
