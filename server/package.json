@@ -8,6 +8,8 @@
     "classify": "tsx src/scripts/classify.ts",
     "draft-report": "tsx src/scripts/draft-report.ts",
     "review": "tsx src/scripts/review.ts",
+    "http": "tsx src/http/server.ts",
+    "dev": "tsx watch src/http/server.ts",
     "test:clinvar": "tsx src/scripts/test-clinvar.ts",
     "test:annotate": "tsx src/scripts/test-annotate-pipeline.ts",
     "test:scorer": "tsx src/scripts/test-acmg-scorer.ts",
@@ -18,10 +20,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "fast-xml-parser": "^4.5.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.10.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

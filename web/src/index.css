@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens copied exactly from stitch_clinical_variant_report_reviewer/
+ * clinical_diagnostic_document_engine/DESIGN.md and the tailwind.config
+ * embedded in each generated screen — the ACMG 5-tier colors, typography
+ * scale, and Material Symbols icon font are the real design source, not a
+ * generic template. See PLAN.md Phase 5 for what was intentionally dropped
+ * (fictional CLIA/regulatory copy) vs kept (this visual system, unchanged).
+ */
+@theme {
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #cddbef;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4ff;
+  --color-surface-container: #e4efff;
+  --color-surface-container-high: #dbe9fe;
+  --color-surface-container-highest: #d5e4f8;
+  --color-on-surface: #0e1d2b;
+  --color-on-surface-variant: #44474c;
+  --color-inverse-surface: #243241;
+  --color-inverse-on-surface: #e9f1ff;
+  --color-outline: #75777c;
+  --color-outline-variant: #c5c6cc;
+  --color-surface-tint: #565f6d;
+  --color-primary: #050e1a;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1b2430;
+  --color-on-primary-container: #828b9a;
+  --color-inverse-primary: #bec7d7;
+  --color-secondary: #29657c;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #a9e2fd;
+  --color-on-secondary-container: #2a667d;
+  --color-tertiary: #160c00;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #322000;
+  --color-on-tertiary-container: #b38221;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #dae3f4;
+  --color-primary-fixed-dim: #bec7d7;
+  --color-on-primary-fixed: #131c28;
+  --color-on-primary-fixed-variant: #3e4755;
+  --color-secondary-fixed: #bde9ff;
+  --color-secondary-fixed-dim: #96cee9;
+  --color-on-secondary-fixed: #001f2a;
+  --color-on-secondary-fixed-variant: #024d64;
+  --color-tertiary-fixed: #ffdeab;
+  --color-tertiary-fixed-dim: #f6bd58;
+  --color-on-tertiary-fixed: #281900;
+  --color-on-tertiary-fixed-variant: #5f4100;
+  --color-background: #f8f9ff;
+  --color-on-background: #0e1d2b;
+  --color-surface-variant: #d5e4f8;
+
+  /* Literal colors used directly (page canvas, hairlines, and the paper sheet) */
+  --color-canvas: #f5f6f8;
+  --color-hairline: #dce0e6;
+  --color-hairline-soft: #e2e7ed;
+  --color-ink: #1b2430;
+
+  /* 5-tier ACMG classification colors — exact values from DESIGN.md, never altered per tier */
+  --color-acmg-pathogenic: #8c3b2e;
+  --color-acmg-likely-pathogenic: #a85c32;
+  --color-acmg-vus: #6b6470;
+  --color-acmg-likely-benign: #6b8f71;
+  --color-acmg-likely-benign-text: #3f6b4a;
+  --color-acmg-benign: #3f6b4a;
+
+  /* Pending Review vs Approved — the visual distinction the whole app hinges on */
+  --color-pending: #a97917;
+  --color-approved: #1d5c73;
+
+  --font-headline: "Literata", serif;
+  --font-ui: "IBM Plex Sans", sans-serif;
+  --font-genomic: "JetBrains Mono", monospace;
+
+  --text-headline-lg: 26px;
+  --text-headline-lg--line-height: 32px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 19px;
+  --text-headline-md--line-height: 24px;
+  --text-headline-md--letter-spacing: -0.005em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 15px;
+  --text-headline-sm--line-height: 20px;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-narrative: 13px;
+  --text-body-narrative--line-height: 20px;
+  --text-body-narrative--font-weight: 400;
+
+  --text-body-narrative-bold: 13px;
+  --text-body-narrative-bold--line-height: 20px;
+  --text-body-narrative-bold--font-weight: 600;
+
+  --text-ui-body-lg: 14px;
+  --text-ui-body-lg--line-height: 20px;
+
+  --text-ui-body-md: 12px;
+  --text-ui-body-md--line-height: 16px;
+
+  --text-ui-label-bold: 11px;
+  --text-ui-label-bold--line-height: 14px;
+  --text-ui-label-bold--letter-spacing: 0.04em;
+  --text-ui-label-bold--font-weight: 600;
+
+  --text-ui-label-mono: 11px;
+  --text-ui-label-mono--line-height: 14px;
+  --text-ui-label-mono--font-weight: 500;
+
+  --text-code-genomic: 12px;
+  --text-code-genomic--line-height: 16px;
+  --text-code-genomic--font-weight: 500;
+
+  --text-code-genomic-sm: 10.5px;
+  --text-code-genomic-sm--line-height: 14px;
+
+  --text-caption: 10px;
+  --text-caption--line-height: 13px;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-on-surface);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}

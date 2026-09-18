@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="4" fill="#1B2430"/>
+  <path d="M12 14h24v3H12zm0 7h18v3H12zm0 7h24v3H12zm0 7h14v3H12z" fill="#F5F6F8" fill-opacity="0.25"/>
+  <!-- DNA double-helix stylized node crossing clinical document motif -->
+  <circle cx="16" cy="15.5" r="3" fill="#A97917"/>
+  <circle cx="32" cy="22.5" r="3" fill="#8C3B2E"/>
+  <circle cx="20" cy="29.5" r="3" fill="#6B6470"/>
+  <circle cx="28" cy="36.5" r="3" fill="#1D5C73"/>
+  <path d="M16 15.5 C 24 18, 24 20, 32 22.5 M 32 22.5 C 24 26, 24 26, 20 29.5 M 20 29.5 C 24 33, 24 33, 28 36.5" stroke="#F5F6F8" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+</svg>

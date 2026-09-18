@@ -117,10 +117,10 @@ function extractCitedIndexes(text: string): number[] {
   return indexes;
 }
 
-export async function draftVariantExplanation(v: ClassifiedVariant): Promise<VariantDraft> {
+export async function draftVariantExplanation(v: ClassifiedVariant, apiKeyOverride?: string): Promise<VariantDraft> {
   const citations = buildCitations(v);
   const prompt = buildPrompt(v, citations);
-  const { summary } = await generateJson<{ summary: string }>(prompt);
+  const { summary } = await generateJson<{ summary: string }>(prompt, apiKeyOverride);
 
   const citedIndexes = extractCitedIndexes(summary);
   const validIndexes = new Set(citations.map((c) => c.index));

@@ -44,8 +44,12 @@ data/input/*.vcf.gz  →  VEP (Docker)  →  data/annotated/*.vep.json
 | Layer | What it is | Details |
 |---|---|---|
 | `vep/` | Docker scripts | Runs the official `ensemblorg/ensembl-vep` image against `data/input/` |
-| [`server/`](server) | Node/TypeScript | ClinVar cross-reference, ACMG-inspired scorer, Gemini report drafting |
-| `web/` | React + TypeScript UI (Phase 5) | Design system from `stitch_clinical_variant_report_reviewer/` |
+| [`server/`](server) | Node/TypeScript | ClinVar cross-reference, ACMG-inspired scorer, Gemini drafting, Express API, review workflow |
+| [`web/`](web) | React + TypeScript UI | Vite, Tailwind CSS v4, design system from `stitch_clinical_variant_report_reviewer/` |
+
+Two independent projects, each with its own `package.json` (not an npm
+workspace — same Windows npm symlink issue documented in the other two
+projects' PLAN.md files): `server/` and `web/`.
 
 `PLAN.md` is the build log — every phase, decision, and real bug hit along
 the way, kept for anyone picking this project back up later.
@@ -59,19 +63,49 @@ Strelka output from an actual nf-core/sarek run against NA12878
 
 ## Quick start
 
-*(Phase 1 in progress — this section will be filled in as each phase lands;
-see `PLAN.md` for current status.)*
+**1. Get a free Gemini API key** at https://aistudio.google.com/apikey
+(Google account, no payment info needed), then copy `.env.example` to `.env`
+in the project root and paste it in as `GEMINI_API_KEY`. (You can also skip
+this and paste a personal key into the running app's Settings page instead —
+see "Publishing it for others to use" below.)
 
-1. **VEP annotation**: see `vep/README.md` — pick offline cache
-   (~25.7GB one-time download, then fast/offline forever) or `--database`
-   mode (no download, slower, live). Then:
-   ```bash
-   cd vep && ./download-reference.sh && ./run-vep.sh   # (+ ./download-cache.sh first, for offline mode)
-   ```
-2. **ClinVar cross-reference**:
-   ```bash
-   cd server && npm install && npm run annotate
-   ```
+**2. Run the pipeline once** to produce real annotated/drafted data (only
+needs to be re-run if you change the input VCF or want fresh AI drafts):
+```bash
+cd server && npm install
+```
+```bash
+cd ../vep && ./download-reference.sh && ./run-vep.sh --database   # or omit --database + ./download-cache.sh first for the offline-cache option — see vep/README.md
+cd ../server && npm run annotate && npm run classify && npm run draft-report
+```
+This writes `data/annotated/classified-variants.json` and `draft-report.json`
+— the real VEP + ClinVar + Gemini output the UI reads.
+
+**3. Run the app** — two processes:
+```bash
+cd server && npm run http   # → http://localhost:4400
+cd web && npm install && npm run dev   # → http://localhost:5173
+```
+Open the frontend URL. You'll see the real 39 significant variants from the
+real NA12878 sample, each with a real AI-drafted explanation you can accept,
+edit, or reject — then formally approve once every claim has a decision.
+
+*(You can also drive the whole review workflow from the terminal instead of
+the UI: `cd server && npm run review -- <list|decide|status|approve|
+finalize|audit>` — see `server/src/scripts/review.ts`.)*
+
+## Publishing it for others to use
+
+Same bring-your-own-key pattern as Genomic Evidence Copilot: each visitor
+pastes their own free Gemini key into the app's **Settings** page (stored
+only in their browser's `localStorage`, sent only as a header on
+`/api/redraft` calls, never logged or persisted server-side). If the server
+*does* have `GEMINI_API_KEY` set in `.env`, that's used as a fallback for
+anyone who hasn't set their own — handy for running it just for yourself.
+There's no login/accounts; review decisions and the audit trail are shared
+project-wide state (this is a single-sample demo tool, not a multi-tenant
+system), so treat a public deployment as a shared demo, not a private
+workspace.
 
 ## Confirming it's free
 
@@ -82,6 +116,8 @@ see `PLAN.md` for current status.)*
   just raises the rate limit).
 - **Report drafting**: Google Gemini free-tier API key only, never a paid
   tier.
+- **Frontend/backend**: React, Vite, Express, Tailwind — all open-source
+  npm packages, zero cost.
 - **No cloud hosting, no paid infrastructure** — everything runs on the
   user's own laptop.
 

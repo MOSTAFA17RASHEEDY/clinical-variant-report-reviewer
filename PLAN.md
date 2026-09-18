@@ -345,4 +345,84 @@ context.
 
 ## Phase 5 — Real UI + polish
 
-Not started.
+- [x] **Read all 6 stitch screens closely** (not just skimmed) before writing
+      any frontend code: worklist, draft report, variant evidence detail,
+      sign-off, audit trail, and the logo mark. Found the same pattern
+      Genomic Evidence Copilot already documented needing adaptation for:
+      heavy fictional "clinical production" flourishes (fake CLIA/CAP
+      accreditation numbers, fake patients with names/MRNs/DOBs,
+      cryptographic Merkle roots, HL7/FHIR EHR dispatch, YubiKey FIDO2
+      hardware tokens, 21 CFR Part 11 / ISO 15189 compliance badges).
+      **Kept exactly**: the color palette, typography scale (Literata/IBM
+      Plex Sans/JetBrains Mono), the 5-tier ACMG chip styling, the paper-
+      sheet document layout, the Pending Review watermark technique, the
+      claim-by-claim accept/edit/reject card pattern, the audit ledger
+      table layout. **Replaced** the fictional content with what's
+      actually true: the real NA12878 reference sample (a real, public,
+      de-identified sample — not a fabricated patient) instead of a fake
+      patient case, a real user-entered reviewer name instead of a
+      hardcoded "Dr. Eleanor Vance, FACMG", the real Gemini model name
+      instead of fake "VariantAI Engine v2.4", a real append-only JSON
+      audit log instead of cryptographic-seal theater, and a persistent
+      "portfolio/demo, not a validated clinical device" disclaimer in the
+      header instead of fake accreditation numbers.
+- [x] One structural adaptation beyond copy: the mockup's "worklist" shows
+      28 fictional patient cases across different diseases. This project
+      has exactly one real sample, so the worklist instead lists the real
+      39 significant variants requiring review — a more honest fit than
+      inventing fake cases to match the mockup's shape.
+- [x] `server/src/http/server.ts` — Express API wrapping the existing
+      Phase 1-4 library code directly (no new business logic, no
+      database — same file-backed state as the CLI scripts).
+      Endpoints: `/api/case`, `/api/report`, `/api/variants`,
+      `/api/review` (+`/decide`, `/approve`), `/api/final-report`, and
+      `/api/redraft/:variantKey` (regenerates one variant's AI draft live,
+      accepts a bring-your-own Gemini key via `X-Gemini-Api-Key` header,
+      clears any existing decision on that variant since the text just
+      changed under it). Refactored `gemini.ts`/`report-drafter.ts` to
+      accept an optional per-call API key override for this.
+      Factored `report-store.ts` out of the CLI's `review.ts` so both the
+      CLI and the HTTP server load/save `draft-report.json` the same way.
+- [x] `web/` — Vite + React + TypeScript + Tailwind CSS v4 (same stack as
+      Genomic Evidence Copilot). Design tokens
+      (`web/src/index.css`) copied exactly from `DESIGN.md`'s color/type
+      scale using Tailwind v4's `@theme` block. Pages: Worklist, Draft
+      Review (document-style report preview), Variant Detail (AI draft +
+      real citations + live "Re-draft with AI" + accept/edit/reject),
+      Review & Sign-Off (all 39 claims + the exact required attestation
+      text + approval), Audit Trail, Settings (reviewer name + optional
+      personal Gemini key, both localStorage-only per the earlier
+      "Settings tab" decision).
+- [x] **Real browser verification, not just a successful build** — no
+      screenshot/browser tool was available directly, so installed
+      Playwright + Chromium into the session's scratch directory and
+      drove the actual running app (Vite dev server + Express API):
+      - Screenshotted all 6 routes with real data loaded: 0 console
+        errors, 0 page errors on any route.
+      - **Found and diagnosed a real Tailwind v4 behavior change** while
+        checking the watermark: v4 renders `rotate-45` via the standalone
+        CSS `rotate` property, not the legacy `transform` property —
+        `getComputedStyle(el).transform` reads `'none'` even though the
+        rotation is genuinely applied (`getComputedStyle(el).rotate` shows
+        `'-45deg'`). A real, worth-recording gotcha for anyone checking
+        Tailwind v4 transforms programmatically.
+      - Drove a full real interaction end-to-end through the browser (not
+        an API test): set a reviewer name in Settings, clicked Accept on
+        a real variant, confirmed the Audit Trail immediately reflected
+        the real decision with the real reviewer name.
+      - Tested the new **live "Re-draft with AI" button for real**: clicked
+        it, watched it call Gemini through the running server, and
+        confirmed the drafted text on screen genuinely changed to a new
+        AI-generated explanation — not a mocked interaction.
+      - Improved the Audit Trail's detail rendering after seeing it
+        live: raw JSON dumps (including the full original AI paragraph
+        inline) were unreadable in the table; replaced with a per-action
+        human-readable summary that still surfaces every real field (full
+        edited text, reviewer notes), nothing hidden, just formatted.
+      - **Reset all test artifacts afterward** — the QA interaction above
+        used a placeholder name ("Playwright QA Tester") and produced a
+        real Gemini redraft, neither of which should ship as if it were
+        genuine project data: reverted `draft-report.json` to its
+        Phase 3 committed state via `git checkout`, deleted the test
+        `review-state.json`/`audit-log.json` (already gitignored per
+        Phase 4's decision).

@@ -1,7 +1,6 @@
 import fs from "node:fs";
-import path from "node:path";
-import { config } from "../lib/config.js";
 import { loadReviewState, saveReviewState, appendAuditLog, readAuditLog } from "../lib/review-store.js";
+import { loadDraftReport, FINAL_REPORT_PATH } from "../lib/report-store.js";
 import {
   decideClaim,
   checkApproval,
@@ -11,17 +10,14 @@ import {
   REQUIRED_ATTESTATION_TEXT,
   type ClaimDecisionValue,
 } from "../lib/review-workflow.js";
-import type { VariantDraft } from "../lib/report-drafter.js";
 
-const REPORT_PATH = path.join(config.projectRoot, "data/annotated/draft-report.json");
-const FINAL_REPORT_PATH = path.join(config.projectRoot, "data/annotated/final-report.json");
-
-function loadReport(): { generatedAt: string; drafts: VariantDraft[] } {
-  if (!fs.existsSync(REPORT_PATH)) {
-    console.error(`${REPORT_PATH} not found — run "npm run draft-report" first (Phase 3).`);
+function loadReport() {
+  try {
+    return loadDraftReport();
+  } catch (err) {
+    console.error(err instanceof Error ? err.message : err);
     process.exit(1);
   }
-  return JSON.parse(fs.readFileSync(REPORT_PATH, "utf-8"));
 }
 
 function parseFlags(args: string[]): Record<string, string> {

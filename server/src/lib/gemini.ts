@@ -22,15 +22,22 @@ export class GeminiError extends Error {}
  */
 export class GeminiRateLimitError extends GeminiError {}
 
-export async function generateJson<T>(prompt: string): Promise<T> {
-  if (!config.geminiApiKey) {
+/**
+ * apiKeyOverride supports the web UI's "bring your own key" pattern (same
+ * as Genomic Evidence Copilot): a visitor's own free key, sent per-request
+ * from their browser, takes priority over the shared .env key so running
+ * this as a published demo never bills one shared key on everyone's behalf.
+ */
+export async function generateJson<T>(prompt: string, apiKeyOverride?: string): Promise<T> {
+  const apiKey = apiKeyOverride || config.geminiApiKey;
+  if (!apiKey) {
     throw new GeminiError(
-      "GEMINI_API_KEY is not set. Get a free key at https://aistudio.google.com/apikey and add it to .env",
+      "No Gemini API key available. Get a free key at https://aistudio.google.com/apikey and add it in Settings (or .env for the server).",
     );
   }
 
   for (let attempt = 0; attempt < 3; attempt++) {
-    const res = await fetch(`${API_BASE}/models/${MODEL}:generateContent?key=${config.geminiApiKey}`, {
+    const res = await fetch(`${API_BASE}/models/${MODEL}:generateContent?key=${apiKey}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
