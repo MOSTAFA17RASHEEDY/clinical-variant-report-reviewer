@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+Thumbs.db
+
+# vep-cache/ holds files re-downloadable via vep/download-*.sh: the
+# reference FASTA (~65MB decompressed) and, if the offline-cache option is
+# ever used instead of --database mode, the ~25.7GB indexed cache.
+vep-cache/*
+
+# Raw VEP output regenerates from data/input/ via vep/run-vep.sh (~6 min in
+# --database mode, no download) — data/annotated/variants.json (the actual
+# ClinVar-cross-referenced result server/src/scripts/annotate.ts produces)
+# is kept since it's the real, small (~170KB) Phase 1 deliverable.
+data/annotated/*.vep.json
+data/annotated/*.vep.json_summary.html
+
+# Design source zip (extracted folder is kept, this duplicate is not needed in git)
+stitch_clinical_variant_report_reviewer.zip

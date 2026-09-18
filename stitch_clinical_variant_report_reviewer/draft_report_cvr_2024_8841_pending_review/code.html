@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Literata:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#565f6d","surface-container-low":"#eef4ff","tertiary-fixed-dim":"#f6bd58","on-surface-variant":"#44474c","surface-variant":"#d5e4f8","outline":"#75777c","tertiary-container":"#322000","primary-fixed-dim":"#bec7d7","surface":"#f8f9ff","primary-fixed":"#dae3f4","secondary-container":"#a9e2fd","surface-container":"#e4efff","on-secondary-fixed-variant":"#024d64","primary":"#050e1a","on-primary-fixed":"#131c28","on-error":"#ffffff","secondary":"#29657c","primary-container":"#1b2430","on-background":"#0e1d2b","secondary-fixed":"#bde9ff","on-tertiary-fixed-variant":"#5f4100","error":"#ba1a1a","inverse-on-surface":"#e9f1ff","surface-container-high":"#dbe9fe","on-tertiary-container":"#b38221","on-primary-fixed-variant":"#3e4755","on-secondary-fixed":"#001f2a","surface-container-lowest":"#ffffff","surface-dim":"#cddbef","on-error-container":"#93000a","inverse-surface":"#243241","on-tertiary-fixed":"#281900","on-secondary-container":"#2a667d","outline-variant":"#c5c6cc","secondary-fixed-dim":"#96cee9","error-container":"#ffdad6","inverse-primary":"#bec7d7","tertiary":"#160c00","on-secondary":"#ffffff","on-primary":"#ffffff","on-primary-container":"#828b9a","tertiary-fixed":"#ffdeab","background":"#f8f9ff","on-surface":"#0e1d2b","surface-container-highest":"#d5e4f8","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{margin:"2rem","space-xs":"0.25rem",gutter:"1rem","space-xl":"2rem","space-sm":"0.5rem","space-lg":"1.25rem","space-md":"0.75rem"},fontFamily:{"ui-label-bold":["IBM Plex Sans"],"headline-sm":["Literata"],"headline-lg":["Literata"],"headline-md":["Literata"],"code-genomic-sm":["JetBrains Mono"],"ui-label-mono":["JetBrains Mono"],"ui-body-lg":["IBM Plex Sans"],"body-narrative":["Literata"],"body-narrative-bold":["Literata"],caption:["IBM Plex Sans"],"code-genomic":["JetBrains Mono"],"ui-body-md":["IBM Plex Sans"]},fontSize:{"ui-label-bold":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-lg":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["19px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"code-genomic-sm":["10.5px",{lineHeight:"14px",fontWeight:"400"}],"ui-label-mono":["11px",{lineHeight:"14px",fontWeight:"500"}],"ui-body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative":["13px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative-bold":["13px",{lineHeight:"20px",fontWeight:"600"}],caption:["10px",{lineHeight:"13px",fontWeight:"400"}],"code-genomic":["12px",{lineHeight:"16px",fontWeight:"500"}],"ui-body-md":["12px",{lineHeight:"16px",fontWeight:"400"}]}}}}</script></head><body class="bg-[#F5F6F8] font-ui-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-[#DCE0E6]"><div class="h-20 w-full px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-4 min-w-max"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U6PlPFL3M6nGHHIxmoykoHqg5ZAeigoNva3qdspvEjmen59MWKMGic2_u7Y3dBr7vL8giMMzh2GC6tyx7fbkp82iYKqbkis3ejCVXD4tXfU30rKvm_3A2pEkqoUyCPi2VFvzEAKWBrCwHG5mtVzjW6pj22QpFZYuY0XOrnYMcIooGJuHqQQAi2TlEP0EBTIRxzYuj1z9fjTbarqEQxmzgzBOK3NfV61HmupfDgOb12ofJKQ0zHGpK880vP"/><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-ui-label-bold text-headline-sm text-primary tracking-tight">Clinical Variant Report Generator</span><span class="px-1.5 py-0.5 bg-surface-container-high text-on-surface-variant font-ui-label-mono text-caption rounded">DIAGNOSTIC CORE</span></div><span class="font-caption text-caption text-on-surface-variant tracking-normal">Molecular Pathology &amp; Cytogenetics Division | CAP/CLIA Accredited</span></div></div><nav class="flex items-center h-full gap-1" data-active-classes="bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary"><a class="relative flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="report-worklist" href="#"><span>Report Worklist</span><span class="ml-2 px-1.5 py-0.5 bg-secondary text-on-secondary rounded-full font-ui-label-mono text-caption">7 Pending</span></a><a aria-current="page" class="flex items-center h-full px-3.5 transition-colors uppercase tracking-wider bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary" data-path="draft-review" href="#"><span>Draft Review</span><span class="ml-2 font-code-genomic-sm text-code-genomic-sm text-on-surface-variant bg-surface-container-high px-1 py-0.5 rounded">CVR-2024-8841</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="variant-evidence-detail" href="#"><span>Variant Evidence Detail</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="review-and-sign-off" href="#"><span>Review &amp; Sign-Off</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="audit-trail" href="#"><span>Audit Trail</span></a></nav><div class="flex items-center gap-3.5 min-w-max pl-4 border-l border-[#DCE0E6]"><div class="flex flex-col text-right"><div class="flex items-center justify-end gap-1.5"><span class="font-ui-label-bold text-ui-label-bold text-primary">Dr. Eleanor Vance, FACMG</span><span class="font-ui-label-mono text-caption text-secondary">[MD-99214-CA]</span></div><span class="font-caption text-caption text-on-surface-variant">Lead Clinical Molecular Geneticist • Precision Genomics Institute</span></div><div class="flex flex-col items-end gap-0.5"><span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant text-on-surface font-ui-label-mono text-caption uppercase tracking-wider rounded">CLINICAL PRODUCTION v4.2.1</span><span class="font-ui-label-mono text-caption text-outline">CLIA #05D9824151</span></div></div></div></header><main class="w-full pt-20 bg-[#F5F6F8] min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command Ribbon & Navigation Bar -->
+<aside class="sticky top-20 z-40 w-full bg-surface-container-lowest shadow-sm border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-6 py-2.5 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-fixed-dim"></span>
+</span>
+<div class="flex items-baseline gap-2">
+<span class="font-ui-label-bold text-ui-label-bold uppercase tracking-wider text-primary">Draft Document Stage</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-secondary bg-surface-container-high px-1.5 py-0.5 rounded">CVR-2024-8841.v2</span>
+</div>
+<div class="hidden md:flex items-center gap-1.5 pl-3 border-l border-outline-variant/40 font-caption text-caption text-on-surface-variant">
+<span>Synthesized by VariantAI Engine v2.4</span>
+<span>•</span>
+<span>Pipeline Q-Score: 99.98%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary font-ui-label-bold text-ui-label-bold uppercase rounded transition-colors shadow-sm" id="view-evidence-btn">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Evidence Trail</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary font-ui-label-bold text-ui-label-bold uppercase rounded transition-colors shadow-sm" id="export-pdf-btn">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Export Draft PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 bg-secondary hover:bg-secondary/90 text-on-secondary font-ui-label-bold text-ui-label-bold uppercase rounded transition-all shadow-md" id="signoff-modal-trigger">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Review &amp; Sign-Off</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Workstation Document Canvas -->
+<div class="w-full py-8 px-4 flex justify-center bg-[#F5F6F8]">
+<!-- Paper Sheet Container (Strict 816px Standard 96 DPI Letter Proportions) -->
+<article class="relative w-full max-w-[816px] bg-[#FFFFFF] shadow-md border border-[#DCE0E6] p-9 text-[#1B2430] overflow-hidden select-text">
+<!-- Security Watermark Underprint (Rotated, Translucent Amber, Non-blocking) -->
+<div class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center overflow-hidden">
+<div class="transform -rotate-45 whitespace-nowrap select-none font-headline-lg text-headline-lg font-bold uppercase tracking-[0.25em] text-[#A97917] opacity-[0.08] text-center leading-relaxed">
+          PRELIMINARY DRAFT — PENDING HUMAN REVIEW &amp; SIGN-OFF<br/>NOT VALID FOR CLINICAL DECISION-MAKING
+        </div>
+</div>
+<!-- Top Diagnostic Draft Security Banner -->
+<div class="relative z-20 mb-6 bg-surface-container-low border-l-4 border-tertiary-fixed-dim p-3.5 flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold uppercase tracking-wider text-tertiary">Pending Formal Clinical Review</span>
+<p class="font-ui-body-md text-ui-body-md text-on-surface-variant mt-0.5">
+            This diagnostic draft was synthesized by <strong class="text-primary font-ui-label-bold">VariantAI Engine v2.4</strong> from pipeline genomic annotations. Clinical sign-off by a board-certified molecular geneticist is strictly required before clinical release to the Electronic Health Record.
+          </p>
+</div>
+</div>
+<!-- 1. Institutional Header & Accreditation Lockup -->
+<header class="relative z-20 pb-4 mb-5 border-b-2 border-primary">
+<div class="flex items-start justify-between gap-6">
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight font-bold">PRECISION GENOMICS DIAGNOSTIC LABORATORY</h1>
+<span class="font-caption text-caption uppercase tracking-wider text-on-surface-variant mt-0.5">Department of Molecular Pathology &amp; Clinical Cytogenetics • Human Genome Institute</span>
+<span class="font-ui-body-md text-ui-body-md text-primary mt-1">Medical Director: <strong class="font-ui-label-bold">Dr. Arthur Sterling, MD, FCAP, FACMG</strong></span>
+</div>
+<div class="flex flex-col items-end text-right font-ui-label-mono text-caption text-on-surface-variant leading-tight shrink-0">
+<span class="px-1.5 py-0.5 bg-surface-container-high text-primary font-ui-label-bold text-caption rounded mb-1">PROVISIONAL RECORD</span>
+<span>CLIA ID: <strong class="text-primary">05D2094182</strong></span>
+<span>CAP ACCREDITED: <strong class="text-primary"># 7192801</strong></span>
+<span>STATE LIC: <strong class="text-primary">CA-CDF-0004921</strong></span>
+</div>
+</div>
+</header>
+<!-- 2. Patient & Sample Demographics Box (Hairline Data Grid) -->
+<section class="relative z-20 mb-6 bg-surface-container-lowest border border-[#DCE0E6]">
+<div class="grid grid-cols-4 divide-x divide-y divide-[#DCE0E6]">
+<!-- Row 1 -->
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Patient Full Name</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Reynolds, Margaret E.</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Medical Record (MRN)</span>
+<span class="font-code-genomic text-ui-body-md text-primary">PT-40912</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Date of Birth / Age</span>
+<span class="font-ui-body-md text-primary">1970-03-12 (54Y)</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Biological Sex</span>
+<span class="font-ui-body-md text-primary">Female</span>
+</div>
+<!-- Row 2 -->
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Accession Identifier</span>
+<span class="font-code-genomic text-ui-body-md text-secondary font-semibold">CVR-2024-8841</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Specimen Matrix</span>
+<span class="font-ui-body-md text-primary">Peripheral Blood (EDTA)</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Specimen Collected</span>
+<span class="font-ui-body-md text-primary">2024-10-22 08:45 PDT</span>
+</div>
+<div class="p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Laboratory Received</span>
+<span class="font-ui-body-md text-primary">2024-10-23 11:15 PDT</span>
+</div>
+<!-- Row 3 -->
+<div class="col-span-2 p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Ordering Clinician &amp; Care Team</span>
+<span class="font-ui-body-md text-primary">Dr. Sarah Lin, MD (Surgical Oncology)</span>
+<span class="block font-caption text-caption text-on-surface-variant">University Comprehensive Cancer Center • Breast Diagnostic Pavilion</span>
+</div>
+<div class="col-span-2 p-2.5">
+<span class="block font-ui-label-bold text-caption uppercase tracking-wider text-outline">Assay / Protocol Requested</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Comprehensive Hereditary Breast &amp; Gynecologic Panel</span>
+<span class="font-caption text-caption text-on-surface-variant block">Targeted High-Depth NGS + Copy Number Alteration (Del/Dup) Analysis</span>
+</div>
+</div>
+</section>
+<!-- 3. Clinical Indication Section -->
+<section class="relative z-20 mb-6 bg-surface-container-low p-3.5 border-l-2 border-secondary">
+<span class="font-ui-label-bold text-caption uppercase tracking-wider text-secondary block mb-1">Clinical Indication &amp; Patient Presentation</span>
+<p class="font-body-narrative text-body-narrative text-primary leading-relaxed">
+          Strong family history of premenopausal breast cancer (mother dx at 42, maternal aunt dx at 48); patient diagnosed with invasive ductal carcinoma of right breast, ER+/PR-/HER2-. Evaluated for germline hereditary cancer predisposition to guide surgical intervention strategy and adjuvant therapeutic decision-making.
+        </p>
+</section>
+<!-- 4. Diagnostic Summary / Primary Result Callout -->
+<section class="relative z-20 mb-6 bg-surface-container-lowest border-2 border-error p-4">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center w-8 h-8 rounded bg-error text-on-error shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</span>
+<div>
+<span class="font-caption text-caption uppercase tracking-wider text-error font-bold">Diagnostic Summary Determination</span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">POSITIVE: ONE CLINICALLY ACTIONABLE PATHOGENIC VARIANT IDENTIFIED</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 bg-error/10 text-error font-ui-label-bold text-caption uppercase rounded border border-error/20 shrink-0">
+            High Clinical Penetrance
+          </span>
+</div>
+</section>
+<!-- 5. Variant Classification Table -->
+<section class="relative z-20 mb-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-ui-label-bold text-caption uppercase tracking-wider text-primary">Table 1.0 • Constitutional Genomic Alterations Detected</span>
+<span class="text-caption text-on-surface-variant font-caption">(GRCh38 Reference Genome Assembly)</span>
+</div>
+<span class="font-ui-label-mono text-caption text-outline">ACMG/AMP 2015 Tier Matrix</span>
+</div>
+<div class="overflow-x-auto border border-[#DCE0E6]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-primary font-ui-label-bold text-caption uppercase tracking-wider border-b border-[#DCE0E6]">
+<th class="py-2 px-2.5">Gene</th>
+<th class="py-2 px-2.5">Genomic Coordinate</th>
+<th class="py-2 px-2.5">cDNA Change (HGVS)</th>
+<th class="py-2 px-2.5">Protein Change</th>
+<th class="py-2 px-2.5">Zygosity</th>
+<th class="py-2 px-2.5">VAF</th>
+<th class="py-2 px-2.5 text-right">ACMG Classification</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCE0E6] font-code-genomic text-code-genomic">
+<!-- Row 1: Pathogenic -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-2.5 font-ui-label-bold text-ui-body-md text-primary">BRCA1</td>
+<td class="py-2.5 px-2.5 text-on-surface-variant">chr17:43044295</td>
+<td class="py-2.5 px-2.5 font-semibold text-primary">c.5266dupC</td>
+<td class="py-2.5 px-2.5 text-primary">p.Gln1756Profs*74</td>
+<td class="py-2.5 px-2.5 font-ui-body-md text-primary">Heterozygous</td>
+<td class="py-2.5 px-2.5 font-semibold text-primary">49.2%</td>
+<td class="py-2.5 px-2.5 text-right">
+<span class="inline-block px-2 py-0.5 bg-[#8C3B2E] text-on-error font-ui-label-bold text-caption uppercase rounded-none tracking-wide">
+                    Pathogenic
+                  </span>
+</td>
+</tr>
+<!-- Row 2: VUS -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-2.5 font-ui-label-bold text-ui-body-md text-primary">ATM</td>
+<td class="py-2.5 px-2.5 text-on-surface-variant">chr11:108236162</td>
+<td class="py-2.5 px-2.5 text-primary">c.5557G&gt;A</td>
+<td class="py-2.5 px-2.5 text-primary">p.Asp1853Asn</td>
+<td class="py-2.5 px-2.5 font-ui-body-md text-primary">Heterozygous</td>
+<td class="py-2.5 px-2.5 text-primary">48.7%</td>
+<td class="py-2.5 px-2.5 text-right">
+<span class="inline-block px-2 py-0.5 bg-[#6B6470] text-on-error font-ui-label-bold text-caption uppercase rounded-none tracking-wide">
+                    VUS
+                  </span>
+</td>
+</tr>
+<!-- Row 3: Likely Benign -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-2.5 font-ui-label-bold text-ui-body-md text-primary">CHEK2</td>
+<td class="py-2.5 px-2.5 text-on-surface-variant">chr22:28701004</td>
+<td class="py-2.5 px-2.5 text-primary">c.1111C&gt;T</td>
+<td class="py-2.5 px-2.5 text-primary">p.Arg371Trp</td>
+<td class="py-2.5 px-2.5 font-ui-body-md text-primary">Heterozygous</td>
+<td class="py-2.5 px-2.5 text-primary">50.1%</td>
+<td class="py-2.5 px-2.5 text-right">
+<span class="inline-block px-2 py-0.5 border border-[#6B8F71] text-[#3F6B4A] font-ui-label-bold text-caption uppercase rounded-none tracking-wide">
+                    Likely Benign
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-1 flex items-center justify-between font-caption text-caption text-outline">
+<span>*Allele Fraction (VAF) determined by targeted dual-strand deep sequencing (&gt;500x mean on-target depth).</span>
+<span>NM_007294.4 (BRCA1) • NM_000051.4 (ATM) • NM_007194.4 (CHEK2)</span>
+</div>
+</section>
+<!-- 6. AI-Drafted Clinical Interpretation Narrative -->
+<section class="relative z-20 mb-6 space-y-4">
+<div class="border-b border-primary/20 pb-1 flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">Clinical Variant Interpretation &amp; Disease Association</h3>
+<span class="font-ui-label-mono text-caption text-secondary">LOVD / ClinVar (RCV000078239.31)</span>
+</div>
+<!-- Section A: BRCA1 Narrative -->
+<div>
+<h4 class="font-ui-label-bold text-ui-body-md text-primary uppercase tracking-wide mb-1.5 flex items-center gap-2">
+<span>Variant Interpretation — BRCA1 c.5266dupC (p.Gln1756Profs*74)</span>
+<span class="px-1.5 py-0.2 bg-error/10 text-error font-ui-label-mono text-caption rounded">ACMG: Pathogenic</span>
+</h4>
+<p class="font-body-narrative text-body-narrative text-primary leading-relaxed text-justify">
+            The <span class="font-code-genomic text-primary font-semibold">BRCA1 c.5266dupC</span> insertion leads to a reading frame shift resulting in a premature termination codon 74 amino acids downstream, predicted to cause loss of normal protein function either through protein truncation or nonsense-mediated mRNA decay (<strong>PVS1</strong>). This specific variant (historically designated <em>5382insC</em>) represents one of the well-documented Ashkenazi Jewish founder mutations and has been extensively validated across international registries as predisposing to hereditary breast and ovarian cancer syndrome (HBOC) (<strong>PS4, PM2_Supporting, PP5</strong>). In the context of the patient's personal diagnosis and maternal family history, this finding confirms a molecular etiology and confers substantial lifetime risks for contralateral breast malignancies and epithelial ovarian neoplasms.
+          </p>
+</div>
+<!-- Section B: Guideline Alignment -->
+<div>
+<h4 class="font-ui-label-bold text-ui-body-md text-primary uppercase tracking-wide mb-1.5">
+            Clinical Recommendations &amp; NCCN Guideline Alignment
+          </h4>
+<p class="font-body-narrative text-body-narrative text-primary leading-relaxed text-justify">
+            Per current NCCN Guidelines for Genetic/Familial High-Risk Assessment (Breast, Ovarian, and Pancreatic Version 1.2024), pathogenic variants in <span class="font-semibold">BRCA1</span> carry immediate therapeutic and prophylactic implications:
+          </p>
+<ul class="list-disc pl-5 mt-2 space-y-1 font-body-narrative text-body-narrative text-primary">
+<li><strong>PARP Inhibitor Eligibility:</strong> Pathogenic germline BRCA status supports clinical evaluation for adjuvant Olaparib therapy in high-risk early HER2-negative breast cancer, or in advanced treatment settings.</li>
+<li><strong>Surgical Oncology Considerations:</strong> Increased risk of contralateral breast carcinoma (cumulative risk ~20–30% at 10 years). Consideration of bilateral mastectomy vs. enhanced surveillance is indicated.</li>
+<li><strong>Gynecologic Cancer Risk Management:</strong> Recommend risk-reducing bilateral salpingo-oophorectomy (RRSO) between ages 35 and 40, or upon completion of childbearing.</li>
+<li><strong>Cascade Familial Testing:</strong> First-degree biological relatives (children, siblings, parents) have a 50% likelihood of harboring this pathogenic alteration. Targeted single-site mutation analysis is recommended.</li>
+</ul>
+</div>
+<!-- Section C: Secondary Variants Note -->
+<div class="bg-surface-container-lowest p-3 border border-[#DCE0E6]">
+<span class="font-ui-label-bold text-caption uppercase tracking-wider text-on-surface-variant block mb-1">Additional Noted Alterations</span>
+<p class="font-body-narrative text-body-narrative text-on-surface-variant">
+<strong>ATM c.5557G&gt;A (p.Asp1853Asn):</strong> Retains an ACMG classification of Uncertain Clinical Significance (VUS). In silico modeling yields discordant deleteriousness scores; population databases note low minor allele frequencies. Management should follow personal and family history rather than this unclassified finding.
+          </p>
+</div>
+</section>
+<!-- 7. Assay Methodology & Limitations -->
+<section class="relative z-20 mb-6 border-t border-[#DCE0E6] pt-3">
+<span class="font-ui-label-bold text-caption uppercase tracking-wider text-outline block mb-1">Methodology &amp; Regulatory Technical Limitations</span>
+<p class="font-caption text-caption text-on-surface-variant leading-normal text-justify">
+          Genomic DNA isolated from whole blood was enriched for target exonic regions of 48 hereditary cancer predisposition genes using hybrid capture probe chemistry. High-throughput sequencing was conducted on Illumina NovaSeq 6000 platforms (paired-end 150bp). Minimum 99.4% of targeted bases achieved ≥100x depth. Variants were annotated using Human Genome Variation Society (HGVS v20.05) nomenclature and classified following ACMG/AMP standards. Technical limitations: Deep intronic single-nucleotide variants outside canonical ±20bp splice boundaries, large chromosomal inversions, and low-level mosaicism (&lt;10%) may not be reliably identified.
+        </p>
+</section>
+<!-- 8. Footer Signature Placeholder Block -->
+<footer class="relative z-20 mt-8 border-2 border-dashed border-tertiary-fixed-dim bg-surface-container-low p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container text-[24px]">pending_actions</span>
+<div>
+<span class="font-ui-label-bold text-ui-label-bold uppercase tracking-wider text-tertiary block">
+              SIGNATURE PENDING — DRAFT UNLOCKED FOR REVIEW
+            </span>
+<span class="font-caption text-caption text-on-surface-variant">
+              This document cannot be issued as a definitive clinical record without a cryptographic MD/FACMG sign-off.
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-ui-label-mono text-caption text-outline bg-surface-container-highest px-2 py-1 rounded">
+            DRAFT TOKEN: 0x8841-AIF-20241024
+          </span>
+</div>
+</footer>
+<!-- Physical Document Page Marker -->
+<div class="relative z-20 mt-4 flex items-center justify-between font-ui-label-mono text-caption text-outline pt-2 border-t border-[#DCE0E6]">
+<span>Precision Genomics Institute • Document CVR-2024-8841</span>
+<span>Page 1 of 2 (Comprehensive Clinical Dossier)</span>
+</div>
+</article>
+</div>
+<!-- Evidence Trail Quick Drawer (Hidden by default, slides over on click) -->
+<div class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-surface-container-lowest border-l border-outline-variant shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 overflow-y-auto hidden" id="evidence-drawer">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">account_tree</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Variant Evidence Trail</h3>
+</div>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" id="close-evidence-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="mt-5 space-y-4">
+<div class="bg-surface-container p-3 rounded">
+<span class="font-ui-label-bold text-caption uppercase text-outline">Target Gene &amp; Locus</span>
+<div class="font-code-genomic text-ui-body-md text-primary font-bold">BRCA1 • c.5266dupC</div>
+<div class="font-code-genomic-sm text-caption text-secondary">chr17:43044295 (GRCh38)</div>
+</div>
+<div class="space-y-2">
+<span class="font-ui-label-bold text-caption uppercase text-primary">ACMG Rule Justifications</span>
+<div class="p-2.5 bg-surface-container-low border-l-2 border-error text-caption">
+<div class="font-ui-label-bold text-error">PVS1 • Very Strong Pathogenic</div>
+<p class="font-ui-body-md text-on-surface-variant mt-0.5">Frameshift variant downstream of exon 19 causing premature stop codon at position 74. Truncation deletes critical BRCT repeat domains.</p>
+</div>
+<div class="p-2.5 bg-surface-container-low border-l-2 border-error text-caption">
+<div class="font-ui-label-bold text-error">PS4 • Strong Pathogenic</div>
+<p class="font-ui-body-md text-on-surface-variant mt-0.5">Prevalence in affected individuals statistically significantly increased over controls (Odds Ratio &gt; 12.0 in HBOC cohort studies).</p>
+</div>
+<div class="p-2.5 bg-surface-container-low border-l-2 border-secondary text-caption">
+<div class="font-ui-label-bold text-secondary">PM2_Supporting • Moderate Pathogenic</div>
+<p class="font-ui-body-md text-on-surface-variant mt-0.5">Extremely low frequency in gnomAD non-cancer controls (MAF: 0.00014 in European Ashkenazi sub-population).</p>
+</div>
+<div class="p-2.5 bg-surface-container-low border-l-2 border-secondary text-caption">
+<div class="font-ui-label-bold text-secondary">PP5 • Supporting Pathogenic</div>
+<p class="font-ui-body-md text-on-surface-variant mt-0.5">Concordant classification across &gt;35 submitters in ClinVar with zero conflicting benign submissions.</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/40">
+<span class="font-ui-label-bold text-caption uppercase text-primary block mb-2">Automated Pipeline Lineage</span>
+<div class="space-y-1.5 font-code-genomic-sm text-caption text-on-surface-variant">
+<div class="flex justify-between"><span>FastQ Q30%:</span><span class="text-primary font-bold">96.8%</span></div>
+<div class="flex justify-between"><span>BWA-MEM v0.7.17:</span><span class="text-primary">Passed</span></div>
+<div class="flex justify-between"><span>GATK HaplotypeCaller:</span><span class="text-primary">v4.4.0</span></div>
+<div class="flex justify-between"><span>VEP Ensemble Annotation:</span><span class="text-primary">Release 110</span></div>
+<div class="flex justify-between"><span>AI Engine Model:</span><span class="text-secondary font-bold">VariantAI-v2.4-Med</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sign-Off & Verification Modal Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-primary-container/70 backdrop-blur-sm hidden p-4" id="signoff-modal">
+<div class="w-full max-w-lg bg-[#FFFFFF] border-2 border-primary shadow-2xl p-6">
+<div class="flex items-start justify-between pb-3 border-b border-[#DCE0E6]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified_user</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Cryptographic Clinical Sign-Off</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary" id="close-modal-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="py-4 space-y-4">
+<div class="p-3 bg-surface-container-low border-l-2 border-secondary">
+<span class="font-ui-label-bold text-caption uppercase text-secondary">Document Summary</span>
+<div class="font-ui-body-md text-primary mt-1 font-semibold">Accession: CVR-2024-8841 (Reynolds, Margaret E.)</div>
+<div class="text-caption text-on-surface-variant">Pathogenic Alteration: BRCA1 c.5266dupC (p.Gln1756Profs*74)</div>
+</div>
+<div class="space-y-2">
+<label class="flex items-start gap-2 cursor-pointer select-none">
+<input class="mt-1 h-4 w-4 rounded border-outline text-secondary focus:ring-secondary" id="affirmation-checkbox" type="checkbox"/>
+<span class="font-ui-body-md text-ui-body-md text-primary">
+              I certify that I have reviewed the NGS raw read alignments, allelic frequencies, quality metrics, and interpretive narratives. I confirm this report conforms to CAP/CLIA protocols and authorize its formal release.
+            </span>
+</label>
+</div>
+<div class="space-y-1.5 pt-2">
+<label class="block font-ui-label-bold text-caption uppercase text-primary" for="passkey-input">Geneticist Credential Passkey / PIN</label>
+<input class="w-full px-3 py-2 border border-[#DCE0E6] bg-surface-container-lowest font-code-genomic text-ui-body-md text-primary focus:outline-none focus:border-secondary" id="passkey-input" placeholder="Enter secure lab signing PIN..." type="password"/>
+<span class="text-caption font-caption text-outline">Authorized Signatory: Dr. Eleanor Vance, FACMG (MD-99214-CA)</span>
+</div>
+</div>
+<div class="pt-4 border-t border-[#DCE0E6] flex items-center justify-end gap-3">
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high text-primary font-ui-label-bold text-ui-label-bold uppercase rounded" id="cancel-modal-btn">
+          Cancel
+        </button>
+<button class="px-4 py-2 bg-secondary/40 text-on-secondary font-ui-label-bold text-ui-label-bold uppercase rounded cursor-not-allowed transition-all" disabled="" id="execute-signoff-btn">
+          Authorize &amp; Sign
+        </button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      // Elements
+      const evidenceDrawer = document.getElementById('evidence-drawer');
+      const viewEvidenceBtn = document.getElementById('view-evidence-btn');
+      const closeEvidenceBtn = document.getElementById('close-evidence-btn');
+
+      const signoffModal = document.getElementById('signoff-modal');
+      const signoffTrigger = document.getElementById('signoff-modal-trigger');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const cancelModalBtn = document.getElementById('cancel-modal-btn');
+      const affirmationCheckbox = document.getElementById('affirmation-checkbox');
+      const passkeyInput = document.getElementById('passkey-input');
+      const executeSignoffBtn = document.getElementById('execute-signoff-btn');
+      const exportPdfBtn = document.getElementById('export-pdf-btn');
+
+      // Evidence Drawer Toggle
+      function openEvidence() {
+        evidenceDrawer.classList.remove('hidden');
+        setTimeout(() => {
+          evidenceDrawer.classList.remove('translate-x-full');
+        }, 10);
+      }
+
+      function closeEvidence() {
+        evidenceDrawer.classList.add('translate-x-full');
+        setTimeout(() => {
+          evidenceDrawer.classList.add('hidden');
+        }, 300);
+      }
+
+      viewEvidenceBtn.addEventListener('click', openEvidence);
+      closeEvidenceBtn.addEventListener('click', closeEvidence);
+
+      // Sign-Off Modal Toggle
+      function openModal() {
+        signoffModal.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        signoffModal.classList.add('hidden');
+        affirmationCheckbox.checked = false;
+        passkeyInput.value = '';
+        validateInputs();
+      }
+
+      signoffTrigger.addEventListener('click', openModal);
+      closeModalBtn.addEventListener('click', closeModal);
+      cancelModalBtn.addEventListener('click', closeModal);
+
+      // Modal Validation Logic
+      function validateInputs() {
+        const isAffirmed = affirmationCheckbox.checked;
+        const hasPin = passkeyInput.value.trim().length >= 4;
+        if (isAffirmed && hasPin) {
+          executeSignoffBtn.disabled = false;
+          executeSignoffBtn.classList.remove('bg-secondary/40', 'cursor-not-allowed');
+          executeSignoffBtn.classList.add('bg-secondary', 'hover:bg-secondary/90', 'cursor-pointer');
+        } else {
+          executeSignoffBtn.disabled = true;
+          executeSignoffBtn.classList.add('bg-secondary/40', 'cursor-not-allowed');
+          executeSignoffBtn.classList.remove('bg-secondary', 'hover:bg-secondary/90', 'cursor-pointer');
+        }
+      }
+
+      affirmationCheckbox.addEventListener('change', validateInputs);
+      passkeyInput.addEventListener('input', validateInputs);
+
+      // Execute Sign-Off Mock Action
+      executeSignoffBtn.addEventListener('click', function() {
+        if (!executeSignoffBtn.disabled) {
+          executeSignoffBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Cryptographically Sealing...';
+          setTimeout(() => {
+            alert('Diagnostic report CVR-2024-8841 successfully signed by Dr. Eleanor Vance, FACMG. Report has been released to EHR Gateway and state cancer registry.');
+            closeModal();
+            executeSignoffBtn.innerHTML = 'Authorize &amp; Sign';
+          }, 1200);
+        }
+      });
+
+      // Export PDF print preview action
+      exportPdfBtn.addEventListener('click', function() {
+        window.print();
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#DCE0E6] py-3"><div class="w-full px-8 flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-4 font-caption text-caption"><span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>System Operational • CAP/CLIA Validated Pipeline</span><span>Specimen Chain-of-Custody Secure</span><span>AES-256 Encrypted EHR Gateway</span></div><div class="font-ui-label-mono text-caption text-outline">© 2024 Precision Genomics Institute • Constitutional &amp; Somatic Variant Interpretation System</div></div></footer></body></html>

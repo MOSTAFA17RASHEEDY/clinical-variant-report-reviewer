@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Literata:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#565f6d","surface-container-low":"#eef4ff","tertiary-fixed-dim":"#f6bd58","on-surface-variant":"#44474c","surface-variant":"#d5e4f8","outline":"#75777c","tertiary-container":"#322000","primary-fixed-dim":"#bec7d7","surface":"#f8f9ff","primary-fixed":"#dae3f4","secondary-container":"#a9e2fd","surface-container":"#e4efff","on-secondary-fixed-variant":"#024d64","primary":"#050e1a","on-primary-fixed":"#131c28","on-error":"#ffffff","secondary":"#29657c","primary-container":"#1b2430","on-background":"#0e1d2b","secondary-fixed":"#bde9ff","on-tertiary-fixed-variant":"#5f4100","error":"#ba1a1a","inverse-on-surface":"#e9f1ff","surface-container-high":"#dbe9fe","on-tertiary-container":"#b38221","on-primary-fixed-variant":"#3e4755","on-secondary-fixed":"#001f2a","surface-container-lowest":"#ffffff","surface-dim":"#cddbef","on-error-container":"#93000a","inverse-surface":"#243241","on-tertiary-fixed":"#281900","on-secondary-container":"#2a667d","outline-variant":"#c5c6cc","secondary-fixed-dim":"#96cee9","error-container":"#ffdad6","inverse-primary":"#bec7d7","tertiary":"#160c00","on-secondary":"#ffffff","on-primary":"#ffffff","on-primary-container":"#828b9a","tertiary-fixed":"#ffdeab","background":"#f8f9ff","on-surface":"#0e1d2b","surface-container-highest":"#d5e4f8","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{margin:"2rem","space-xs":"0.25rem",gutter:"1rem","space-xl":"2rem","space-sm":"0.5rem","space-lg":"1.25rem","space-md":"0.75rem"},fontFamily:{"ui-label-bold":["IBM Plex Sans"],"headline-sm":["Literata"],"headline-lg":["Literata"],"headline-md":["Literata"],"code-genomic-sm":["JetBrains Mono"],"ui-label-mono":["JetBrains Mono"],"ui-body-lg":["IBM Plex Sans"],"body-narrative":["Literata"],"body-narrative-bold":["Literata"],caption:["IBM Plex Sans"],"code-genomic":["JetBrains Mono"],"ui-body-md":["IBM Plex Sans"]},fontSize:{"ui-label-bold":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-lg":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["19px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"code-genomic-sm":["10.5px",{lineHeight:"14px",fontWeight:"400"}],"ui-label-mono":["11px",{lineHeight:"14px",fontWeight:"500"}],"ui-body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative":["13px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative-bold":["13px",{lineHeight:"20px",fontWeight:"600"}],caption:["10px",{lineHeight:"13px",fontWeight:"400"}],"code-genomic":["12px",{lineHeight:"16px",fontWeight:"500"}],"ui-body-md":["12px",{lineHeight:"16px",fontWeight:"400"}]}}}}</script></head><body class="bg-[#F5F6F8] font-ui-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-[#DCE0E6]"><div class="h-20 w-full px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-4 min-w-max"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U6PlPFL3M6nGHHIxmoykoHqg5ZAeigoNva3qdspvEjmen59MWKMGic2_u7Y3dBr7vL8giMMzh2GC6tyx7fbkp82iYKqbkis3ejCVXD4tXfU30rKvm_3A2pEkqoUyCPi2VFvzEAKWBrCwHG5mtVzjW6pj22QpFZYuY0XOrnYMcIooGJuHqQQAi2TlEP0EBTIRxzYuj1z9fjTbarqEQxmzgzBOK3NfV61HmupfDgOb12ofJKQ0zHGpK880vP"/><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-ui-label-bold text-headline-sm text-primary tracking-tight">Clinical Variant Report Generator</span><span class="px-1.5 py-0.5 bg-surface-container-high text-on-surface-variant font-ui-label-mono text-caption rounded">DIAGNOSTIC CORE</span></div><span class="font-caption text-caption text-on-surface-variant tracking-normal">Molecular Pathology &amp; Cytogenetics Division | CAP/CLIA Accredited</span></div></div><nav class="flex items-center h-full gap-1" data-active-classes="bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary"><a class="relative flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="report-worklist" href="#"><span>Report Worklist</span><span class="ml-2 px-1.5 py-0.5 bg-secondary text-on-secondary rounded-full font-ui-label-mono text-caption">7 Pending</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="draft-review" href="#"><span>Draft Review</span><span class="ml-2 font-code-genomic-sm text-code-genomic-sm text-on-surface-variant bg-surface-container-high px-1 py-0.5 rounded">CVR-2024-8841</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="variant-evidence-detail" href="#"><span>Variant Evidence Detail</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="review-and-sign-off" href="#"><span>Review &amp; Sign-Off</span></a><a aria-current="page" class="flex items-center h-full px-3.5 transition-colors uppercase tracking-wider bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary" data-path="audit-trail" href="#"><span>Audit Trail</span></a></nav><div class="flex items-center gap-3.5 min-w-max pl-4 border-l border-[#DCE0E6]"><div class="flex flex-col text-right"><div class="flex items-center justify-end gap-1.5"><span class="font-ui-label-bold text-ui-label-bold text-primary">Dr. Eleanor Vance, FACMG</span><span class="font-ui-label-mono text-caption text-secondary">[MD-99214-CA]</span></div><span class="font-caption text-caption text-on-surface-variant">Lead Clinical Molecular Geneticist • Precision Genomics Institute</span></div><div class="flex flex-col items-end gap-0.5"><span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant text-on-surface font-ui-label-mono text-caption uppercase tracking-wider rounded">CLINICAL PRODUCTION v4.2.1</span><span class="font-ui-label-mono text-caption text-outline">CLIA #05D9824151</span></div></div></div></header><main class="w-full pt-20 bg-[#F5F6F8] min-h-screen"><div class="flex flex-col w-full">
+<!-- Regulatory Breadcrumb & Quick Telemetry Header -->
+<div class="w-full bg-surface-container-lowest px-8 py-4">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary font-ui-label-mono text-caption uppercase">21 CFR PART 11</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant font-ui-label-mono text-caption uppercase">CAP-LAP SEC.GEN.20375</span>
+<span class="px-2 py-0.5 bg-secondary text-on-secondary font-ui-label-mono text-caption uppercase">IMMUTABLE ARCHIVE</span>
+</div>
+<div class="flex items-baseline gap-3">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Regulatory Compliance Audit Trail</h1>
+<span class="font-ui-label-mono text-ui-label-mono text-secondary">LEDGER_UID: 0x992B-8841-SEC</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col text-right">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">Chain of Custody Status</span>
+<span class="font-ui-label-bold text-ui-body-lg text-secondary flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+            CRYPTOGRAPHICALLY SEALED
+          </span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 bg-surface-container-high hover:bg-surface-container text-primary font-ui-label-bold text-ui-label-bold uppercase tracking-wider transition-colors flex items-center gap-1.5" id="btn-verify-all">
+<span class="material-symbols-outlined text-base">lock_open_right</span>
+            Verify Hashes
+          </button>
+<button class="px-3.5 py-2 bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-ui-label-bold text-ui-label-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-sm" id="btn-export-dossier">
+<span class="material-symbols-outlined text-base">picture_as_pdf</span>
+            Export Audit Package (PDF/A-1b)
+          </button>
+</div>
+</div>
+</div>
+<!-- Forensic Metadata Belt -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-4 pt-3 bg-surface-container-low p-3">
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Specimen Accession</span>
+<span class="font-ui-label-mono text-ui-body-lg text-primary">CVR-2024-8841</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Patient Identifier</span>
+<span class="font-ui-label-mono text-ui-body-lg text-primary">MRN: PT-40912</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Lifecycle Duration</span>
+<span class="font-ui-body-lg text-ui-body-lg text-primary">4h 18m <span class="text-caption text-on-surface-variant">(Pipeline → Dispatch)</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Sign-Off Authority</span>
+<span class="font-ui-body-lg text-ui-body-lg text-primary">Dr. Eleanor Vance, FACMG</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Total Audit Events</span>
+<span class="font-ui-label-mono text-ui-body-lg text-secondary">6 Immutable Commits</span>
+</div>
+</div>
+</div>
+<!-- Main Split Canvas: Ledger Table on Left (Wide), Certificate & Summary on Right (Narrow) -->
+<div class="w-full px-8 py-6">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- Primary Column: Chronological Audit Ledger (8 Cols on xl) -->
+<div class="xl:col-span-8 flex flex-col gap-4">
+<!-- Controls & Filter Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest p-3 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">filter_list</span>
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">Event Filter:</span>
+<button class="px-2 py-0.5 bg-primary text-on-primary font-ui-label-bold text-caption">All Events (6)</button>
+<button class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant hover:text-primary font-ui-label-bold text-caption">Human Interventions (3)</button>
+<button class="px-2 py-0.5 bg-surface-container-high text-on-surface-variant hover:text-primary font-ui-label-bold text-caption">Automated Machine Logs (3)</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-ui-label-mono text-caption text-on-surface-variant">CHAIN INTEGRITY:</span>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-ui-label-mono text-caption flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              MERKLE_ROOT: 0x82FA...3C11
+            </span>
+</div>
+</div>
+<!-- Forensic Table -->
+<div class="bg-surface-container-lowest shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left table-fixed border-collapse">
+<thead>
+<tr class="bg-surface-container text-primary font-ui-label-bold text-ui-label-bold uppercase">
+<th class="w-[140px] px-3 py-2.5">Timestamp (UTC)</th>
+<th class="w-[170px] px-3 py-2.5">Actor / System Entity</th>
+<th class="w-[150px] px-3 py-2.5">Action &amp; Target</th>
+<th class="px-3 py-2.5">Forensic Change / Diff Record</th>
+<th class="w-[110px] px-3 py-2.5 text-right">Hash Signature</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-ui-body-md text-ui-body-md">
+<!-- Row 1: Demultiplexing -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-on-surface-variant">11:24:02 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-outline">Seq Run #4912</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">memory</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Illumina NovaSeq 6000</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">Instrument ID: NV-9902-CLIA</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-surface-container-high font-ui-label-mono text-caption text-on-surface-variant">AUTOMATED PIPELINE</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Specimen Ingestion</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">FASTQ/BAM QC Pass</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-surface-container text-on-surface-variant text-caption font-ui-label-mono">Yield: 48.2 GB</span>
+</td>
+<td class="px-3 py-3 align-top">
+<p class="font-body-narrative text-body-narrative text-on-surface">Demultiplexing complete. Lane balance index within 1.8% CV tolerance. Overall sequencing base quality Q30 &gt; 92.4% across 150bp paired-end reads.</p>
+<div class="mt-2 bg-surface-container-low p-2 font-ui-label-mono text-code-genomic-sm text-on-surface-variant">
+<span class="text-secondary font-ui-label-bold">QC_METRICS:</span> Mean coverage = 142.6x; Mapped reads = 99.81%; Duplication rate = 7.12%.
+                    </div>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block">sha256:d8a1...4b0f</span>
+<button class="mt-1 text-caption font-ui-label-mono text-outline hover:text-primary underline">Verify block</button>
+</td>
+</tr>
+<!-- Row 2: Variant Calling -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-on-surface-variant">12:05:44 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-outline">+41m 42s</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">terminal</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Variant Calling Core</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">GATK HaplotypeCaller 4.4</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-surface-container-high font-ui-label-mono text-caption text-on-surface-variant">BIOINFORMATICS ENGINE</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Annotation Query</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">ClinVar API v2024.10</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-surface-container text-on-surface-variant text-caption font-ui-label-mono">BRCA1 Locus chr17</span>
+</td>
+<td class="px-3 py-3 align-top">
+<p class="font-body-narrative text-body-narrative text-on-surface">Target somatic/constitutional call flagged: <span class="font-code-genomic font-ui-label-mono text-primary font-bold">BRCA1 c.5266dupC (p.Gln1756Profs*74)</span> detected at <span class="font-ui-label-mono font-bold">49.2% VAF</span> (Heterozygous). Coverage depth: 168x. Matches ClinVar ID 17667 (38 submissions: Pathogenic).</p>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block">sha256:7f0c...91ae</span>
+<button class="mt-1 text-caption font-ui-label-mono text-outline hover:text-primary underline">Verify block</button>
+</td>
+</tr>
+<!-- Row 3: VariantAI Engine v2.4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-on-surface-variant">12:08:11 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-outline">+2m 27s</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">smart_toy</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">VariantAI Engine v2.4</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">Model: BioLLM-ClinPath 70B</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-secondary/15 text-secondary font-ui-label-mono text-caption">AI GENERATIVE PASS</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Draft Generation</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">Report Scaffold v4.1</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-surface-container-highest text-tertiary font-ui-label-mono text-caption">ACMG: PVS1, PS4</span>
+</td>
+<td class="px-3 py-3 align-top">
+<p class="font-body-narrative text-body-narrative text-on-surface">Initial clinical draft synthesized with system watermark <span class="bg-surface-container-high px-1 font-ui-label-mono text-caption text-on-surface">"PENDING REVIEW — DRAFT"</span>. ACMG automated criterion score: <strong class="text-primary font-body-narrative-bold">Pathogenic</strong>. Extracted literature associations for cumulative contralateral breast risk.</p>
+<div class="mt-2 bg-surface-container-high/60 p-2 text-caption font-ui-label-mono text-on-surface-variant">
+                      PROMPT_HASH: 0xaa441... | TEMPERATURE: 0.0 | SEED: 98124419
+                    </div>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block">sha256:321e...88bb</span>
+<button class="mt-1 text-caption font-ui-label-mono text-outline hover:text-primary underline">Verify block</button>
+</td>
+</tr>
+<!-- Row 4: Reviewer Claim Edit (DIFF VIEW HIGHLIGHT) -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-on-surface-variant">15:32:19 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-secondary font-bold">HUMAN CURATION</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">person_check</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Dr. Eleanor Vance</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">Role: Lead Geneticist [FACMG]</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-secondary text-on-secondary font-ui-label-mono text-caption">CLINICAL EDIT</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Reviewer Claim Edit</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">Section 4.2 Management</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-surface-container-high text-primary font-ui-label-mono text-caption">Line 42 Diff Check</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider block mb-1">Evidentiary Correction — Exact Word-Level Delta:</span>
+<!-- Interactive Text Diff Container -->
+<div class="bg-surface-container-lowest p-2.5 shadow-sm space-y-2">
+<div class="flex items-start gap-2 text-caption">
+<span class="px-1.5 py-0.5 bg-surface-variant text-on-surface-variant font-ui-label-mono uppercase">AI Draft</span>
+<p class="font-body-narrative text-body-narrative text-on-surface-variant line-through">
+                          "Carriers of this founder allele demonstrate an estimated cumulative contralateral breast cancer risk of up to <span class="bg-surface-container-highest px-1 text-primary">60%</span> by age 70 in standard familial populations."
+                        </p>
+</div>
+<div class="flex items-start gap-2 text-caption">
+<span class="px-1.5 py-0.5 bg-secondary text-on-secondary font-ui-label-mono uppercase">Dr. Vance Edit</span>
+<p class="font-body-narrative text-body-narrative text-primary font-medium">
+                          "Carriers of this founder allele demonstrate an estimated cumulative contralateral breast cancer risk of <span class="bg-surface-container-high px-1 text-secondary font-bold">40% to 50%</span> by age 70 <span class="bg-surface-container-high px-1 text-secondary font-bold">(citing Kuchenbaecker et al. 2017 prospective cohort, n=9,856)</span>."
+                        </p>
+</div>
+<div class="pt-1 text-caption text-on-surface-variant font-caption flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-secondary">info</span>
+<span>Rationale: Literature refinement to reflect prospective multi-center cohort precision rather than retrospective estimates.</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block">sha256:e410...1911</span>
+<button class="mt-1 text-caption font-ui-label-mono text-secondary underline font-bold">View full diff</button>
+</td>
+</tr>
+<!-- Row 5: Attestation Check -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-on-surface-variant">16:40:02 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-outline">+1h 07m</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">how_to_reg</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Dr. Eleanor Vance</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">NPI: 1982740112</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-surface-container-high font-ui-label-mono text-caption text-on-surface-variant">COMPLIANCE ATTESTATION</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Attestation Check</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">3-Point Checklist</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-surface-container text-on-surface-variant text-caption font-ui-label-mono">CAP Protocol Compliant</span>
+</td>
+<td class="px-3 py-3 align-top">
+<p class="font-body-narrative text-body-narrative text-on-surface">Mandatory 3-point clinical attestation affirmed prior to execution:</p>
+<ul class="mt-1 text-caption text-on-surface space-y-1">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+<span>1. Confirmation of primary alignment and indel realignment coverage at chr17:41197708.</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+<span>2. Verification of transcript NM_007294.4 reference baseline and HGVS nomenclature accuracy.</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+<span>3. Affirmation that AI-generated clinical narrative conforms to diagnostic laboratory standards.</span>
+</li>
+</ul>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block">sha256:a192...c099</span>
+<button class="mt-1 text-caption font-ui-label-mono text-outline hover:text-primary underline">Verify block</button>
+</td>
+</tr>
+<!-- Row 6: Digital Signature & Lockout -->
+<tr class="bg-surface-container-low/70 hover:bg-surface-container transition-colors">
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-mono text-code-genomic text-primary font-bold">2024-10-24</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary font-bold">16:42:18 UTC</span>
+<span class="inline-block mt-1 font-caption text-caption text-secondary font-bold">FINAL COMMITTED</span>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Dr. Eleanor Vance</span>
+</div>
+<span class="block font-caption text-caption text-on-surface-variant">Lead Clinical Geneticist</span>
+<span class="inline-block mt-1 px-1.5 py-0.2 bg-secondary text-on-secondary font-ui-label-mono text-caption">SIGN-OFF EXECUTED</span>
+</td>
+<td class="px-3 py-3 align-top">
+<span class="font-ui-label-bold text-ui-body-md text-primary">Digital Signature</span>
+<span class="block font-ui-label-mono text-code-genomic-sm text-secondary">Formal Sign-off Block</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-secondary/20 text-secondary font-ui-label-mono text-caption font-bold">STATUS: READ-ONLY</span>
+</td>
+<td class="px-3 py-3 align-top">
+<p class="font-body-narrative text-body-narrative text-on-surface font-medium">Formal cryptographically backed 2FA digital signature applied. Watermark replaced with <span class="bg-secondary text-on-secondary px-1.5 py-0.2 font-ui-label-bold text-caption tracking-wider">"REVIEWED &amp; APPROVED"</span> institutional seal. Document status permanently transitioned to <span class="font-ui-label-mono text-primary font-bold">READ_ONLY</span>. Dispatched to institutional EMR gateway via HL7/FHIR v4 interface.</p>
+<div class="mt-2 text-caption font-ui-label-mono text-outline">
+                      AUTH_METHOD: Hardware FIDO2 Security Key (YubiKey 5C) + Biometric Attestation
+                    </div>
+</td>
+<td class="px-3 py-3 align-top text-right">
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary block font-bold">sha256:1a77...fd01</span>
+<span class="inline-block mt-1 px-1.5 py-0.5 bg-secondary text-on-secondary font-ui-label-mono text-caption">VERIFIED</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Status Strip in Table -->
+<div class="p-3 bg-surface-container flex flex-wrap items-center justify-between text-caption font-ui-label-mono text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+                Hash continuity verified across all 6 sequential blocks.
+              </span>
+<span>Zero orphaned modifications detected.</span>
+</div>
+<div class="flex items-center gap-2 text-primary">
+<span class="font-ui-label-bold uppercase">Archive Record:</span>
+<span>PGI-CLIA-ARCHIVE://2024/10/CVR-2024-8841.audit.xml</span>
+</div>
+</div>
+</div>
+<!-- 21 CFR Part 11 & CAP Compliance Declarations -->
+<div class="bg-surface-container-lowest p-4 shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">policy</span>
+              Regulatory Compliance Standard Mapping
+            </span>
+<span class="font-ui-label-mono text-caption text-secondary">ISO 15189:2022 CONFORMANT</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="bg-surface-container-low p-3 flex flex-col gap-1">
+<span class="font-ui-label-mono text-caption text-secondary">21 CFR § 11.10(e)</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Time-Stamped Audit Trail</span>
+<p class="font-caption text-caption text-on-surface-variant">Computer-generated, time-stamped audit trail independently recording date, time, actor, and operational sequence.</p>
+</div>
+<div class="bg-surface-container-low p-3 flex flex-col gap-1">
+<span class="font-ui-label-mono text-caption text-secondary">CAP GEN.20377</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">AI Version Integrity</span>
+<p class="font-caption text-caption text-on-surface-variant">Algorithmic versioning documented with immutable prompt and temperature hash logs for generative clinical assistants.</p>
+</div>
+<div class="bg-surface-container-low p-3 flex flex-col gap-1">
+<span class="font-ui-label-mono text-caption text-secondary">CLIA § 493.1291</span>
+<span class="font-ui-label-bold text-ui-body-md text-primary">Authorized Test Reporting</span>
+<p class="font-caption text-caption text-on-surface-variant">Strict pathologist electronic signature requirement verified before electronic transmission to the ordering clinician.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Column: Cryptographic Certificate of Integrity & Verification Widget (4 Cols on xl) -->
+<div class="xl:col-span-4 flex flex-col gap-4">
+<!-- Certificate of Integrity Sheet (Physical-like styling) -->
+<div class="bg-surface-container-lowest p-6 shadow-sm flex flex-col gap-5 relative">
+<!-- Top Certificate Branding -->
+<div class="flex flex-col items-center text-center gap-1 pb-4">
+<span class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase tracking-widest">Certificate of Forensic Integrity</span>
+<span class="font-caption text-caption text-on-surface-variant">Precision Genomics Institute • Diagnostic Division</span>
+<div class="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container text-secondary font-ui-label-mono text-caption uppercase">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Cryptographically Locked
+            </div>
+</div>
+<!-- Specimen & Certificate Data List -->
+<div class="bg-surface-container-low p-3 flex flex-col gap-2.5 font-ui-label-mono text-caption">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant uppercase">DOCUMENT ID:</span>
+<span class="text-primary font-bold">CVR-2024-8841</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant uppercase">PATIENT MRN:</span>
+<span class="text-primary">PT-40912</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant uppercase">FINAL REVISION:</span>
+<span class="text-primary">Rev 1.0 (Committed)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant uppercase">CLIA LABORATORY:</span>
+<span class="text-primary">05D9824151</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant uppercase">DIGITAL ALGORITHM:</span>
+<span class="text-primary">ECDSA / SHA-256</span>
+</div>
+</div>
+<!-- QR Code & Public Validation Token -->
+<div class="flex flex-col items-center gap-3 p-4 bg-surface-container-lowest shadow-inner text-center">
+<!-- Inline High-Fidelity SVG QR Code Placeholder Graphic -->
+<div class="w-36 h-36 bg-surface-container-lowest p-2 flex items-center justify-center">
+<svg class="w-full h-full text-primary" fill="currentColor" viewbox="0 0 100 100">
+<!-- Outer Corners -->
+<path d="M5 5 h25 v25 h-25 z M10 10 v15 h15 v-15 z M15 15 h5 v5 h-5 z"></path>
+<path d="M70 5 h25 v25 h-25 z M75 10 v15 h15 v-15 z M80 15 h5 v5 h-5 z"></path>
+<path d="M5 70 h25 v25 h-25 z M10 75 v15 h15 v-15 z M15 80 h5 v5 h-5 z"></path>
+<!-- Internal Grid Simulation Data Modules -->
+<path d="M35 5 h5 v5 h-5 z M45 5 h10 v5 h-10 z M60 5 h5 v10 h-5 z"></path>
+<path d="M35 15 h15 v5 h-15 z M55 15 h5 v5 h-5 z M65 15 h5 v5 h-5 z"></path>
+<path d="M35 25 h5 v5 h-5 z M45 25 h5 v15 h-5 z M55 25 h15 v5 h-15 z"></path>
+<path d="M5 35 h15 v5 h-15 z M25 35 h5 v10 h-5 z M35 35 h5 v5 h-5 z M65 35 h10 v5 h-10 z M80 35 h15 v5 h-15 z"></path>
+<path d="M5 45 h5 v10 h-5 z M15 45 h10 v5 h-10 z M75 45 h10 v5 h-10 z M90 45 h5 v15 h-5 z"></path>
+<path d="M25 50 h15 v5 h-15 z M50 50 h10 v5 h-10 z M65 50 h5 v10 h-5 z"></path>
+<path d="M35 60 h10 v5 h-10 z M50 60 h5 v15 h-5 z M75 60 h15 v5 h-15 z"></path>
+<path d="M5 65 h10 v5 h-10 z M20 65 h10 v5 h-10 z M60 65 h10 v5 h-10 z M85 65 h10 v10 h-10 z"></path>
+<path d="M35 75 h10 v5 h-10 z M65 75 h5 v10 h-5 z M75 75 h5 v5 h-5 z"></path>
+<path d="M35 85 h5 v10 h-5 z M45 85 h15 v5 h-15 z M70 85 h10 v10 h-10 z M85 85 h10 v5 h-10 z"></path>
+<path d="M45 95 h10 v5 h-10 z M60 95 h5 v5 h-5 z M80 95 h15 v5 h-15 z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-mono text-caption text-on-surface-variant uppercase tracking-wider">Independent Public Verification Key</span>
+<span class="font-ui-label-mono text-code-genomic-sm text-secondary break-all">https://verify.pgi-genomics.org/v/8841-992B-CA</span>
+</div>
+</div>
+<!-- Document Root Cryptographic Hash Box -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Document Root Hash (SHA-256)</span>
+<button class="font-ui-label-mono text-caption text-secondary hover:underline flex items-center gap-1" id="btn-copy-hash">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+                Copy
+              </button>
+</div>
+<div class="bg-surface-container-high p-2.5 font-ui-label-mono text-code-genomic-sm text-primary break-all">
+              1a774902cd38ebf992019488b3901a88df8e9902bc014418aae7190034fd0188
+            </div>
+<div class="flex items-center gap-1.5 text-caption font-ui-label-mono text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span>Legally Binding Electronic Record Signature</span>
+</div>
+</div>
+<!-- Pathologist Digital Attestation Stamp -->
+<div class="bg-surface-container-low p-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl mt-0.5">draw</span>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Dr. Eleanor Vance, MD, FCAP, FACMG</span>
+<span class="font-caption text-caption text-on-surface-variant">California Medical License: MD-99214-CA</span>
+<span class="font-ui-label-mono text-caption text-on-surface-variant">Signed: 2024-10-24 16:42:18 UTC</span>
+</div>
+</div>
+<!-- Action Buttons in Right Panel -->
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full py-2.5 bg-primary hover:bg-on-background text-on-primary font-ui-label-bold text-ui-label-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">download_for_offline</span>
+              Download Immutable PDF Dossier
+            </button>
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-primary font-ui-label-bold text-ui-label-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">share</span>
+              Dispatch to Epic/Cerner Gateway
+            </button>
+</div>
+</div>
+<!-- Quick Summary Metric Card -->
+<div class="bg-surface-container-lowest p-4 shadow-sm flex flex-col gap-3">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">AI Contribution Analysis</span>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-caption font-ui-label-mono">
+<span class="text-on-surface">AI Draft Text Retained:</span>
+<span class="font-bold text-primary">87.4%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 87.4%"></div>
+</div>
+<div class="flex justify-between items-center text-caption font-ui-label-mono pt-1 text-on-surface-variant">
+<span>Human Clinician Edits: 12.6% (1 claim revised, 2 citations added)</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container-low text-caption font-caption text-on-surface-variant">
+<strong class="text-primary font-body-narrative-bold">AI Governance Statement:</strong> In accordance with CAP draft recommendations, the AI model operated strictly as a summarization accelerator. 100% of interpretations, prognostic estimates, and sign-offs were executed by credentialed diagnostic staff.
+          </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Feedback Notification Toast (Hidden by default) -->
+<div class="fixed bottom-6 right-8 bg-primary text-on-primary px-4 py-3 shadow-xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-50" id="toast-message">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-ui-label-mono text-ui-body-md" id="toast-text">Hash verified against CAP distributed ledger.</span>
+</div>
+<script>
+    // Lightweight micro-interactions for the forensic screen
+    document.addEventListener('DOMContentLoaded', () => {
+      const toast = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+
+      function showToast(msg) {
+        if (!toast) return;
+        toastText.textContent = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        }, 3200);
+      }
+
+      const copyBtn = document.getElementById('btn-copy-hash');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText('1a774902cd38ebf992019488b3901a88df8e9902bc014418aae7190034fd0188');
+          showToast('SHA-256 root hash copied to clipboard.');
+        });
+      }
+
+      const verifyAllBtn = document.getElementById('btn-verify-all');
+      if (verifyAllBtn) {
+        verifyAllBtn.addEventListener('click', () => {
+          showToast('All 6 sequential merkle proofs validated. 0 mismatch flags.');
+        });
+      }
+
+      const exportBtn = document.getElementById('btn-export-dossier');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          showToast('Preparing PDF/A-1b compliant archival package with embedded XMP metadata...');
+        });
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#DCE0E6] py-3"><div class="w-full px-8 flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-4 font-caption text-caption"><span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>System Operational • CAP/CLIA Validated Pipeline</span><span>Specimen Chain-of-Custody Secure</span><span>AES-256 Encrypted EHR Gateway</span></div><div class="font-ui-label-mono text-caption text-outline">© 2024 Precision Genomics Institute • Constitutional &amp; Somatic Variant Interpretation System</div></div></footer></body></html>

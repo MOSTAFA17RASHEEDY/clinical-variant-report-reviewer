@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Literata:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#565f6d","surface-container-low":"#eef4ff","tertiary-fixed-dim":"#f6bd58","on-surface-variant":"#44474c","surface-variant":"#d5e4f8","outline":"#75777c","tertiary-container":"#322000","primary-fixed-dim":"#bec7d7","surface":"#f8f9ff","primary-fixed":"#dae3f4","secondary-container":"#a9e2fd","surface-container":"#e4efff","on-secondary-fixed-variant":"#024d64","primary":"#050e1a","on-primary-fixed":"#131c28","on-error":"#ffffff","secondary":"#29657c","primary-container":"#1b2430","on-background":"#0e1d2b","secondary-fixed":"#bde9ff","on-tertiary-fixed-variant":"#5f4100","error":"#ba1a1a","inverse-on-surface":"#e9f1ff","surface-container-high":"#dbe9fe","on-tertiary-container":"#b38221","on-primary-fixed-variant":"#3e4755","on-secondary-fixed":"#001f2a","surface-container-lowest":"#ffffff","surface-dim":"#cddbef","on-error-container":"#93000a","inverse-surface":"#243241","on-tertiary-fixed":"#281900","on-secondary-container":"#2a667d","outline-variant":"#c5c6cc","secondary-fixed-dim":"#96cee9","error-container":"#ffdad6","inverse-primary":"#bec7d7","tertiary":"#160c00","on-secondary":"#ffffff","on-primary":"#ffffff","on-primary-container":"#828b9a","tertiary-fixed":"#ffdeab","background":"#f8f9ff","on-surface":"#0e1d2b","surface-container-highest":"#d5e4f8","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{margin:"2rem","space-xs":"0.25rem",gutter:"1rem","space-xl":"2rem","space-sm":"0.5rem","space-lg":"1.25rem","space-md":"0.75rem"},fontFamily:{"ui-label-bold":["IBM Plex Sans"],"headline-sm":["Literata"],"headline-lg":["Literata"],"headline-md":["Literata"],"code-genomic-sm":["JetBrains Mono"],"ui-label-mono":["JetBrains Mono"],"ui-body-lg":["IBM Plex Sans"],"body-narrative":["Literata"],"body-narrative-bold":["Literata"],caption:["IBM Plex Sans"],"code-genomic":["JetBrains Mono"],"ui-body-md":["IBM Plex Sans"]},fontSize:{"ui-label-bold":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-lg":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["19px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"code-genomic-sm":["10.5px",{lineHeight:"14px",fontWeight:"400"}],"ui-label-mono":["11px",{lineHeight:"14px",fontWeight:"500"}],"ui-body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative":["13px",{lineHeight:"20px",fontWeight:"400"}],"body-narrative-bold":["13px",{lineHeight:"20px",fontWeight:"600"}],caption:["10px",{lineHeight:"13px",fontWeight:"400"}],"code-genomic":["12px",{lineHeight:"16px",fontWeight:"500"}],"ui-body-md":["12px",{lineHeight:"16px",fontWeight:"400"}]}}}}</script></head><body class="bg-[#F5F6F8] font-ui-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-[#DCE0E6]"><div class="h-20 w-full px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-4 min-w-max"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U6PlPFL3M6nGHHIxmoykoHqg5ZAeigoNva3qdspvEjmen59MWKMGic2_u7Y3dBr7vL8giMMzh2GC6tyx7fbkp82iYKqbkis3ejCVXD4tXfU30rKvm_3A2pEkqoUyCPi2VFvzEAKWBrCwHG5mtVzjW6pj22QpFZYuY0XOrnYMcIooGJuHqQQAi2TlEP0EBTIRxzYuj1z9fjTbarqEQxmzgzBOK3NfV61HmupfDgOb12ofJKQ0zHGpK880vP"/><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-ui-label-bold text-headline-sm text-primary tracking-tight">Clinical Variant Report Generator</span><span class="px-1.5 py-0.5 bg-surface-container-high text-on-surface-variant font-ui-label-mono text-caption rounded">DIAGNOSTIC CORE</span></div><span class="font-caption text-caption text-on-surface-variant tracking-normal">Molecular Pathology &amp; Cytogenetics Division | CAP/CLIA Accredited</span></div></div><nav class="flex items-center h-full gap-1" data-active-classes="bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary"><a class="relative flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="report-worklist" href="#"><span>Report Worklist</span><span class="ml-2 px-1.5 py-0.5 bg-secondary text-on-secondary rounded-full font-ui-label-mono text-caption">7 Pending</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="draft-review" href="#"><span>Draft Review</span><span class="ml-2 font-code-genomic-sm text-code-genomic-sm text-on-surface-variant bg-surface-container-high px-1 py-0.5 rounded">CVR-2024-8841</span></a><a aria-current="page" class="flex items-center h-full px-3.5 transition-colors uppercase tracking-wider bg-surface-container text-primary font-ui-label-bold border-b-2 border-secondary" data-path="variant-evidence-detail" href="#"><span>Variant Evidence Detail</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="review-and-sign-off" href="#"><span>Review &amp; Sign-Off</span></a><a class="flex items-center h-full px-3.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-ui-label-bold text-ui-label-bold uppercase tracking-wider" data-path="audit-trail" href="#"><span>Audit Trail</span></a></nav><div class="flex items-center gap-3.5 min-w-max pl-4 border-l border-[#DCE0E6]"><div class="flex flex-col text-right"><div class="flex items-center justify-end gap-1.5"><span class="font-ui-label-bold text-ui-label-bold text-primary">Dr. Eleanor Vance, FACMG</span><span class="font-ui-label-mono text-caption text-secondary">[MD-99214-CA]</span></div><span class="font-caption text-caption text-on-surface-variant">Lead Clinical Molecular Geneticist • Precision Genomics Institute</span></div><div class="flex flex-col items-end gap-0.5"><span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant text-on-surface font-ui-label-mono text-caption uppercase tracking-wider rounded">CLINICAL PRODUCTION v4.2.1</span><span class="font-ui-label-mono text-caption text-outline">CLIA #05D9824151</span></div></div></div></header><main class="w-full pt-20 bg-[#F5F6F8] min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full bg-surface-container-low px-8 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="font-ui-label-mono text-caption text-on-surface-variant uppercase tracking-wider">Case Reference</span>
+<span class="font-code-genomic text-code-genomic text-primary px-2 py-0.5 bg-surface-container-highest rounded">CVR-2024-8841</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-ui-label-bold text-ui-label-bold text-on-surface-variant">SPECIMEN: NGS-BLD-9942</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption text-outline">PANEL: HBOC-Comprehensive v3.4</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 font-ui-label-mono text-caption text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span>AI SYNTHESIS RUNTIME: 2.14s (Model: GenePath-LLM v3.2-CLINICAL)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 bg-surface-container-highest hover:bg-surface-variant text-primary font-ui-label-bold text-ui-label-bold rounded flex items-center gap-1 transition-colors" id="btn-recompute">
+<span class="material-symbols-outlined text-[14px]">autorenew</span>
+<span>Re-evaluate</span>
+</button>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-variant text-primary font-ui-label-bold text-ui-label-bold rounded flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">file_download</span>
+<span>Export Curated JSON</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full max-w-[1680px] mx-auto p-6 md:p-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="bg-surface-container-lowest p-6 rounded shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6 flex flex-col items-end gap-1.5 pointer-events-none">
+<span class="px-3 py-1 font-ui-label-bold text-ui-label-bold tracking-widest text-on-error bg-[#8C3B2E] uppercase">
+              PATHOGENIC
+            </span>
+<span class="font-ui-label-mono text-caption text-outline">ACMG/AMP 2015 Tier I Class 5</span>
+</div>
+<div class="flex flex-col gap-1 max-w-[70%]">
+<div class="flex items-center gap-2.5">
+<span class="font-ui-label-bold text-headline-md text-primary tracking-tight">BRCA1</span>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface font-ui-label-mono text-caption rounded">Exon 20 / 24</span>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant font-ui-label-mono text-caption rounded">Transcripts: NM_007294.4</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1 flex items-baseline gap-3">
+<span class="font-code-genomic text-[20px] font-semibold text-primary">c.5266dupC</span>
+<span class="font-code-genomic text-[17px] text-on-surface-variant">p.Gln1756Profs*74</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-4 bg-surface-container-low p-4 rounded">
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">Genomic Coordinate</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary mt-0.5">chr17:43044295 (GRCh38)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">dbSNP Identifier</span>
+<a class="font-code-genomic-sm text-code-genomic-sm text-secondary hover:underline mt-0.5 flex items-center gap-1" href="#">
+<span>rs80357906</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">Mutation Type</span>
+<span class="font-ui-body-md text-ui-body-md text-primary mt-0.5">Frameshift Insertion (+1bp)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider">ClinVar Accession</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary mt-0.5">VCV000017677.42</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2 mt-4 pt-3">
+<span class="font-ui-label-mono text-caption text-on-surface-variant uppercase mr-1">Activated Rules:</span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary font-code-genomic-sm text-code-genomic-sm rounded flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#8C3B2E]"></span>PVS1 (Very Strong)
+            </span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary font-code-genomic-sm text-code-genomic-sm rounded flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#A85C32]"></span>PS4 (Strong)
+            </span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface font-code-genomic-sm text-code-genomic-sm rounded flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>PM2_Supporting
+            </span>
+<span class="px-2 py-0.5 bg-surface-container-high text-on-surface font-code-genomic-sm text-code-genomic-sm rounded flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>PP5 (Supporting)
+            </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded shadow-sm">
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">neurology</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Automated Clinical Rationale &amp; Synthesis</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-low text-secondary font-ui-label-mono text-caption rounded">Deterministic AI Confidence: 99.8%</span>
+<span class="material-symbols-outlined text-outline text-[16px]">verified</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-3 font-body-narrative text-body-narrative text-on-background leading-relaxed">
+<p>
+              The insertion of a single cytosine at position 5266 (<code class="font-code-genomic-sm text-primary bg-surface-container-low px-1 py-0.5 rounded">c.5266dupC</code>) alters the open reading frame starting at residue 1756, introducing a premature stop codon 74 amino acids downstream (<code class="font-code-genomic-sm text-primary bg-surface-container-low px-1 py-0.5 rounded">p.Gln1756Profs*74</code>). This event is located within exon 20 of the standard 24-exon canonical transcript (NM_007294.4), targeting the critical C-terminal <strong class="font-body-narrative-bold text-primary">BRCT repeat domain</strong>.
+            </p>
+<p>
+              Loss-of-function (LoF) is an established disease mechanism for hereditary breast and ovarian cancer predisposition mediated by heterozygous <strong class="font-body-narrative-bold text-primary">BRCA1</strong> alterations. Because the premature termination codon resides within the final 50 nucleotides of the penultimate exon, transcripts are predicted either to undergo incomplete nonsense-mediated mRNA decay (NMD) or yield an unstable truncated peptide lacking critical tandem phosphopeptide recognition modules. Criterion <strong class="font-body-narrative-bold text-primary">PVS1</strong> is asserted at full strength under ClinGen sequence variant interpretation (SVI) recommendations.
+            </p>
+<p>
+              Historical ClinVar archives reflect 68 concordant diagnostic submissions designating Pathogenicity without conflicting classifications of uncertain significance (VUS). The ENIGMA Expert Curation Panel evaluated this variant (VCV000017677) and granted four-star authoritative status. Subpopulation analysis indicates an enriched founder frequency in individuals of Ashkenazi Jewish heritage, with an odds ratio &gt; 28.4 across multiple controlled cohort studies, robustly meeting criterion <strong class="font-body-narrative-bold text-primary">PS4</strong>.
+            </p>
+</div>
+<div class="mt-5 p-3.5 bg-surface-container-low rounded flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">policy</span>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Conflicting Submission Re-Scoring Note</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5 leading-normal">
+                Two legacy submissions from 2014 submitted as "Likely Pathogenic" were reconciled against ClinGen 2023 BRCA1 specifications; both submitters updated their determination to Pathogenic post-2018. No residual discordance remains in national registries.
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">Evidence Aggregation Feed (Multi-Omic &amp; Literature)</h3>
+<span class="font-ui-label-mono text-caption text-outline">Synchronized: Today 08:30 UTC</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">hub</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase">ClinVar Knowledgebase</span>
+</div>
+<div class="flex items-center gap-0.5 text-on-tertiary-container">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col gap-2">
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Review Status</span>
+<span class="font-ui-label-mono text-code-genomic-sm text-primary">Reviewed by Expert Panel</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Expert Body</span>
+<span class="font-ui-body-md text-ui-body-md font-semibold text-primary">ENIGMA Consortium</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Total Submissions</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary">68 Concordant / 0 Discordant</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Condition Associations</span>
+<span class="font-ui-body-md text-ui-body-md text-right text-primary">Hereditary Breast &amp; Ovarian Cancer</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-code-genomic-sm text-caption text-outline">VCV000017677.42</span>
+<a class="font-ui-label-bold text-caption text-secondary hover:underline flex items-center gap-1" href="#">
+<span>NCBI ClinVar Portal</span>
+<span class="material-symbols-outlined text-[12px]">launch</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">bar_chart</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase">Population Frequency (gnomAD v4.1.0)</span>
+</div>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-primary font-ui-label-mono text-caption rounded">GRCh38</span>
+</div>
+<div class="mt-2 flex flex-col gap-2">
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Overall Allele Frequency</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary font-semibold">0.000142 (12 / 84,120)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Ashkenazi Jewish Subpopulation</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-error font-semibold">0.0112 (Founder AF)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Homozygote Count</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary">0 (Zero Reported)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Coverage Metrics</span>
+<span class="font-ui-body-md text-ui-body-md text-primary">Median Depth &gt; 42x (High Quality)</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 1.12%"></div>
+<div class="bg-surface-variant h-full flex-grow"></div>
+</div>
+<div class="flex justify-between text-caption font-ui-label-mono text-outline mt-1">
+<span>0.0%</span>
+<span>Founder Threshold: 1.0%</span>
+<span>Max: 2.0%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-code-genomic-sm text-caption text-outline">chr17-43044295-T-TC</span>
+<a class="font-ui-label-bold text-caption text-secondary hover:underline flex items-center gap-1" href="#">
+<span>gnomAD Browser</span>
+<span class="material-symbols-outlined text-[12px]">launch</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">biotech</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase">Functional Domain &amp; Splice Impact</span>
+</div>
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed font-ui-label-mono text-caption rounded">BRCT Domain</span>
+</div>
+<div class="mt-2 flex flex-col gap-2">
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">SpliceAI Delta Score</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary">0.02 (No cryptic splice detected)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">PhyloP Conservation</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary">7.84 (Highly conserved)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Mechanism</span>
+<span class="font-ui-body-md text-ui-body-md text-primary">Loss of homologous recombination repair</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-ui-body-md text-ui-body-md text-on-surface-variant">Protein Impact</span>
+<span class="font-ui-body-md text-ui-body-md text-primary">Truncation at aa 1830 (Native: 1863 aa)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-code-genomic-sm text-caption text-outline">UniProt: P38398</span>
+<span class="font-ui-label-mono text-caption text-on-surface-variant">Domain Loss: Complete BRCT2</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">menu_book</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary uppercase">Curated Primary Citations (14 Total)</span>
+</div>
+<span class="font-ui-label-mono text-caption text-secondary">Verified PMIDs</span>
+</div>
+<div class="mt-2 flex flex-col gap-2.5">
+<div class="flex flex-col gap-0.5">
+<a class="font-ui-label-bold text-ui-body-md text-primary hover:text-secondary flex items-baseline gap-1" href="#">
+<span>Easton DF, et al. Am J Hum Genet. 2007</span>
+<span class="material-symbols-outlined text-[11px]">open_in_new</span>
+</a>
+<span class="font-caption text-caption text-on-surface-variant">Cancer risks in BRCA2 mutation carriers: the Breast Cancer Linkage Consortium.</span>
+<span class="font-code-genomic-sm text-caption text-outline">PMID: 17345244 • Cited for penetrance estimates</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<a class="font-ui-label-bold text-ui-body-md text-primary hover:text-secondary flex items-baseline gap-1" href="#">
+<span>Antoniou AC, et al. J Med Genet. 2005</span>
+<span class="material-symbols-outlined text-[11px]">open_in_new</span>
+</a>
+<span class="font-caption text-caption text-on-surface-variant">Breast and ovarian cancer risks to carriers of the BRCA1 5382insC mutation.</span>
+<span class="font-code-genomic-sm text-caption text-outline">PMID: 16014454 • Legacy nomenclature 5382insC validation</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">12 Additional references linked in EHR dossier</span>
+<a class="font-ui-label-bold text-caption text-secondary hover:underline" href="#">View All References →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-lowest p-6 rounded shadow-sm sticky top-24">
+<div class="pb-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">ACMG 2015 Criteria Builder</h2>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface font-ui-label-mono text-caption rounded">v3.1 Matrix</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-1">
+              Deterministic rule evaluation based on ACMG/AMP &amp; ClinGen guidelines. Reviewer overrides require justification.
+            </p>
+</div>
+<div class="mt-4 flex flex-col gap-3.5">
+<div class="p-3.5 bg-surface-container-low rounded flex flex-col gap-2 transition-all">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="rule-pvs1" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary flex items-center gap-1.5">
+                      PVS1 • Very Strong
+                      <span class="px-1.5 py-0.2 bg-primary text-on-primary font-ui-label-mono text-[9px] rounded">AUTO</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5 leading-snug">
+                      Null variant (frameshift) in a gene where loss-of-function is a known disease mechanism.
+                    </span>
+</div>
+</label>
+<span class="font-ui-label-mono text-caption text-secondary font-medium">100% Conf</span>
+</div>
+<div class="flex items-center justify-between text-caption font-ui-label-mono text-outline pt-1">
+<span>Domain: BRCT-penultimate</span>
+<span class="text-on-surface-variant font-semibold">ClinGen LoF: Satisfied</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded flex flex-col gap-2 transition-all">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="rule-ps4" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary flex items-center gap-1.5">
+                      PS4 • Strong
+                      <span class="px-1.5 py-0.2 bg-primary text-on-primary font-ui-label-mono text-[9px] rounded">AUTO</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5 leading-snug">
+                      Prevalence in affected individuals significantly increased over population controls (OR = 28.4).
+                    </span>
+</div>
+</label>
+<span class="font-ui-label-mono text-caption text-secondary font-medium">98% Conf</span>
+</div>
+<div class="flex items-center justify-between text-caption font-ui-label-mono text-outline pt-1">
+<span>Case Cohort: n=1,240</span>
+<span class="text-on-surface-variant font-semibold">p &lt; 10⁻¹⁶</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded flex flex-col gap-2 transition-all">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="rule-pm2" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary flex items-center gap-1.5">
+                      PM2_Supporting • Supporting
+                      <span class="px-1.5 py-0.2 bg-primary text-on-primary font-ui-label-mono text-[9px] rounded">AUTO</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5 leading-snug">
+                      Extremely low frequency in non-founder populations; 0 homozygotes in gnomAD v4.1.0.
+                    </span>
+</div>
+</label>
+<span class="font-ui-label-mono text-caption text-secondary font-medium">95% Conf</span>
+</div>
+<div class="flex items-center justify-between text-caption font-ui-label-mono text-outline pt-1">
+<span>Downgraded: Founder AF</span>
+<span class="text-on-surface-variant font-semibold">Supporting Strength</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded flex flex-col gap-2 transition-all">
+<div class="flex items-start justify-between">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="rule-pp5" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-primary flex items-center gap-1.5">
+                      PP5 • Supporting
+                      <span class="px-1.5 py-0.2 bg-primary text-on-primary font-ui-label-mono text-[9px] rounded">AUTO</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5 leading-snug">
+                      Reputable source reports alteration as pathogenic without conflicting evidence available to the lab.
+                    </span>
+</div>
+</label>
+<span class="font-ui-label-mono text-caption text-secondary font-medium">100% Conf</span>
+</div>
+<div class="flex items-center justify-between text-caption font-ui-label-mono text-outline pt-1">
+<span>ClinVar: 4 Stars</span>
+<span class="text-on-surface-variant font-semibold">ENIGMA Concordant</span>
+</div>
+</div>
+</div>
+<div class="mt-5 pt-4">
+<label class="flex items-center justify-between font-ui-label-bold text-caption text-on-surface-variant uppercase tracking-wider mb-2" for="reviewer-notes">
+<span>Pathologist Verification Commentary</span>
+<span class="font-ui-label-mono text-caption text-secondary">Logged as Dr. E. Vance</span>
+</label>
+<textarea class="w-full bg-surface-container-low text-on-surface font-ui-body-md text-ui-body-md p-3 rounded focus:outline-none focus:ring-1 focus:ring-secondary resize-none" id="reviewer-notes" placeholder="Add custom diagnostic remarks..." rows="3">Dr. Vance: Verified against ENIGMA 2024 guidelines. Concordant with pathogenic tier. Penetrance analysis consistent with bilateral salpingo-oophorectomy advisory.</textarea>
+</div>
+<div class="mt-4 p-3 bg-surface-container rounded flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-caption text-on-surface-variant uppercase">Current Mathematical Classification</span>
+<span class="font-headline-sm text-headline-sm text-[#8C3B2E] font-bold">Class 5: Pathogenic</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-ui-label-mono text-caption text-outline">Formula Met:</span>
+<span class="font-code-genomic-sm text-code-genomic-sm text-primary">1 VS + 1 S + 2 Sup</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-3">
+<a class="w-full py-3.5 px-4 bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-ui-label-bold text-ui-label-bold uppercase tracking-wider rounded text-center flex items-center justify-center gap-2 shadow-sm transition-colors" data-path="review-and-sign-off" href="#">
+<span class="material-symbols-outlined text-[18px]">draw</span>
+<span>Proceed to Human Sign-Off for CVR-2024-8841</span>
+</a>
+<div class="flex items-center justify-center gap-2">
+<button class="text-on-surface-variant hover:text-primary font-ui-label-bold text-caption uppercase tracking-wider py-1.5 px-3 rounded hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">save</span>
+<span>Save Stage Draft</span>
+</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-primary font-ui-label-bold text-caption uppercase tracking-wider py-1.5 px-3 rounded hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>View Historical Diff</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-50 bg-primary-container text-on-primary p-4 rounded shadow-xl max-w-md hidden flex items-start gap-3" id="toast-recompute">
+<span class="material-symbols-outlined text-secondary-container text-[20px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-ui-label-bold text-ui-label-bold text-surface-container-lowest">Re-evaluation Finished</span>
+<span class="font-caption text-caption text-primary-fixed mt-0.5">Checked ClinVar Release 2024-05 &amp; gnomAD v4.1. Criteria weights remain concordant.</span>
+</div>
+</div>
+<script>
+    (function() {
+      const btnRecompute = document.getElementById('btn-recompute');
+      const toast = document.getElementById('toast-recompute');
+      
+      if (btnRecompute && toast) {
+        btnRecompute.addEventListener('click', function() {
+          const originalText = btnRecompute.innerHTML;
+          btnRecompute.innerHTML = '<span class="material-symbols-outlined text-[14px] animate-spin">sync</span><span>Evaluating...</span>';
+          btnRecompute.classList.add('opacity-75');
+          
+          setTimeout(function() {
+            btnRecompute.innerHTML = originalText;
+            btnRecompute.classList.remove('opacity-75');
+            toast.classList.remove('hidden');
+            setTimeout(function() {
+              toast.classList.add('hidden');
+            }, 4000);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#DCE0E6] py-3"><div class="w-full px-8 flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-4 font-caption text-caption"><span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>System Operational • CAP/CLIA Validated Pipeline</span><span>Specimen Chain-of-Custody Secure</span><span>AES-256 Encrypted EHR Gateway</span></div><div class="font-ui-label-mono text-caption text-outline">© 2024 Precision Genomics Institute • Constitutional &amp; Somatic Variant Interpretation System</div></div></footer></body></html>

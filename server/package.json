@@ -1,0 +1,22 @@
+{
+  "name": "clinical-variant-report-reviewer-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "annotate": "tsx src/scripts/annotate.ts",
+    "test:clinvar": "tsx src/scripts/test-clinvar.ts",
+    "test:annotate": "tsx src/scripts/test-annotate-pipeline.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fast-xml-parser": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
