@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import { CASE_INFO } from "../lib/case-info.js";
 import { loadDraftReport, saveDraftReport, CLASSIFIED_VARIANTS_PATH } from "../lib/report-store.js";
-import { loadReviewState, saveReviewState, appendAuditLog, readAuditLog } from "../lib/review-store.js";
+import { loadReviewState, saveReviewState, appendAuditLog, readAuditLog, saveRedraftOverride, USE_REDIS } from "../lib/review-store.js";
 import {
   decideClaim,
   checkApproval,
@@ -31,9 +31,9 @@ app.get("/api/case", (_req, res) => {
   res.json(CASE_INFO);
 });
 
-app.get("/api/report", (_req, res) => {
+app.get("/api/report", async (_req, res) => {
   try {
-    res.json(loadDraftReport());
+    res.json(await loadDraftReport());
   } catch (err) {
     handleError(res, err);
   }
@@ -47,18 +47,18 @@ app.get("/api/variants", (_req, res) => {
   res.sendFile(CLASSIFIED_VARIANTS_PATH);
 });
 
-app.get("/api/review", (_req, res) => {
+app.get("/api/review", async (_req, res) => {
   try {
-    const { generatedAt, drafts } = loadDraftReport();
-    const state = loadReviewState(generatedAt);
+    const { generatedAt, drafts } = await loadDraftReport();
+    const state = await loadReviewState(generatedAt);
     const approvalCheck = checkApproval(state, drafts);
-    res.json({ state, auditLog: readAuditLog(), approvalCheck, requiredAttestationText: REQUIRED_ATTESTATION_TEXT });
+    res.json({ state, auditLog: await readAuditLog(), approvalCheck, requiredAttestationText: REQUIRED_ATTESTATION_TEXT });
   } catch (err) {
     handleError(res, err);
   }
 });
 
-app.post("/api/review/decide", (req, res) => {
+app.post("/api/review/decide", async (req, res) => {
   try {
     const { variantKey: key, decision, reviewer, editedSummary, note } = req.body as {
       variantKey: string;
@@ -67,38 +67,38 @@ app.post("/api/review/decide", (req, res) => {
       editedSummary?: string;
       note?: string;
     };
-    const { generatedAt, drafts } = loadDraftReport();
+    const { generatedAt, drafts } = await loadDraftReport();
     const draft = drafts.find((d) => variantKey(d) === key);
     if (!draft) throw new Error(`No draft found for ${key}.`);
 
-    const state = loadReviewState(generatedAt);
+    const state = await loadReviewState(generatedAt);
     const { state: newState, auditEntry } = decideClaim(state, draft, decision, reviewer, { editedSummary, note });
-    saveReviewState(newState);
-    appendAuditLog(auditEntry);
+    await saveReviewState(newState);
+    await appendAuditLog(auditEntry);
     res.json({ ok: true, decision: newState.decisions[key] });
   } catch (err) {
     handleError(res, err);
   }
 });
 
-app.post("/api/review/approve", (req, res) => {
+app.post("/api/review/approve", async (req, res) => {
   try {
     const { reviewer, attestationText } = req.body as { reviewer: string; attestationText: string };
-    const { generatedAt, drafts } = loadDraftReport();
-    const state = loadReviewState(generatedAt);
+    const { generatedAt, drafts } = await loadDraftReport();
+    const state = await loadReviewState(generatedAt);
     const { state: newState, auditEntry } = approveReport(state, drafts, reviewer, attestationText);
-    saveReviewState(newState);
-    appendAuditLog(auditEntry);
+    await saveReviewState(newState);
+    await appendAuditLog(auditEntry);
     res.json({ ok: true, approval: newState.approval });
   } catch (err) {
     handleError(res, err);
   }
 });
 
-app.get("/api/final-report", (_req, res) => {
+app.get("/api/final-report", async (_req, res) => {
   try {
-    const { generatedAt, drafts } = loadDraftReport();
-    const state = loadReviewState(generatedAt);
+    const { generatedAt, drafts } = await loadDraftReport();
+    const state = await loadReviewState(generatedAt);
     res.json(buildFinalReport(state, drafts));
   } catch (err) {
     handleError(res, err);
@@ -112,6 +112,11 @@ app.get("/api/final-report", (_req, res) => {
  * Any existing review decision on this variant is cleared: the text just
  * changed, so an old "accepted"/"edited" decision would otherwise silently
  * apply to text the reviewer never actually saw.
+ *
+ * Storage split: in Redis mode (Vercel), the baseline draft-report.json is
+ * a read-only build artifact, so the new draft is saved as an override in
+ * Redis instead (merged in by report-store.ts's loadDraftReport). In file
+ * mode (local), it rewrites draft-report.json directly, same as before.
  */
 app.post("/api/redraft/:variantKey", async (req, res) => {
   try {
@@ -125,17 +130,21 @@ app.post("/api/redraft/:variantKey", async (req, res) => {
 
     const newDraft = await draftVariantExplanation(classified, apiKeyOverride);
 
-    const report = loadDraftReport();
-    const idx = report.drafts.findIndex((d) => variantKey(d) === key);
-    if (idx === -1) throw new Error(`No existing draft found for ${key} to replace.`);
-    report.drafts[idx] = newDraft;
-    saveDraftReport(report);
+    const report = await loadDraftReport();
+    if (!report.drafts.some((d) => variantKey(d) === key)) throw new Error(`No existing draft found for ${key} to replace.`);
 
-    const state = loadReviewState(report.generatedAt);
+    if (USE_REDIS) {
+      await saveRedraftOverride(key, JSON.stringify(newDraft));
+    } else {
+      report.drafts = report.drafts.map((d) => (variantKey(d) === key ? newDraft : d));
+      saveDraftReport(report);
+    }
+
+    const state = await loadReviewState(report.generatedAt);
     if (key in state.decisions) {
       const { [key]: _removed, ...rest } = state.decisions;
-      saveReviewState({ ...state, decisions: rest });
-      appendAuditLog({
+      await saveReviewState({ ...state, decisions: rest });
+      await appendAuditLog({
         timestamp: new Date().toISOString(),
         reviewer: "system",
         action: "revise_claim",
@@ -150,7 +159,14 @@ app.post("/api/redraft/:variantKey", async (req, res) => {
   }
 });
 
-const PORT = Number(process.env.PORT) || 4400;
-app.listen(PORT, () => {
-  console.log(`Clinical Variant Report Reviewer API listening on http://localhost:${PORT}`);
-});
+// Vercel's Node.js builder detects and calls this exported Express app
+// directly per request — it must not call app.listen() itself. Locally
+// (npm run http), VERCEL is unset, so it runs as a normal standalone server.
+if (!process.env.VERCEL) {
+  const PORT = Number(process.env.PORT) || 4400;
+  app.listen(PORT, () => {
+    console.log(`Clinical Variant Report Reviewer API listening on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

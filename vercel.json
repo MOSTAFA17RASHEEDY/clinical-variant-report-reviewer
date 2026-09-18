@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": "web",
+      "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+    },
+    "server": {
+      "root": "server",
+      "entrypoint": "src/http/server.ts",
+      "functions": {
+        "src/http/server.ts": {
+          "includeFiles": "data/annotated/**"
+        }
+      }
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": { "service": "server" } },
+    { "source": "/(.*)", "destination": { "service": "web" } }
+  ]
+}

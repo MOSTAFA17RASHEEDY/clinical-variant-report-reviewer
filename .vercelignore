@@ -1,0 +1,14 @@
+# `vercel deploy` from the CLI uploads the local working directory and was
+# found (by testing, not assumed) to NOT reliably honor .gitignore for this
+# project's layout — a local-only test file with a canary marker was
+# uploaded and served by a real deployment despite being gitignored. This
+# file is the actual, confirmed-effective way to keep local-only or
+# sensitive files out of every deploy.
+.env
+.env.*
+!.env.example
+data/annotated/review-state.json
+data/annotated/audit-log.json
+data/annotated/final-report.json
+node_modules
+.git

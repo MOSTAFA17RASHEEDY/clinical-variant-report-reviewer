@@ -426,3 +426,94 @@ context.
         Phase 3 committed state via `git checkout`, deleted the test
         `review-state.json`/`audit-log.json` (already gitignored per
         Phase 4's decision).
+
+## Phase 6 — Live Vercel deployment
+
+Not in the original 5-phase plan — added after the user asked whether
+deploying to Vercel would be a problem.
+
+- **Diagnosed the real problem before writing any code**: the review/
+  approve workflow persists state by writing local JSON files
+  (`review-state.json`, `audit-log.json`). Vercel serverless functions have
+  a **read-only filesystem in production** — those writes would silently
+  fail or not persist between invocations, quietly breaking the one feature
+  the whole project exists to make trustworthy. Loaded Vercel's own
+  `create-a-backend`, `vercel-storage`, `vercel-services`, and
+  `vercel-functions` skills before making any infrastructure decisions,
+  since platform specifics move fast and guessing would be exactly the
+  wrong instinct here.
+- **User chose**: add a free database, deploy fully live (not a read-only
+  frontend-only demo, not staying local-only).
+- [x] `server/src/lib/kv.ts` + rewrote `review-store.ts` to support **two
+      storage backends behind the same async interface**: local JSON files
+      (default — zero setup, keeps the original "runs on your laptop"
+      promise for anyone not deploying) and Upstash Redis (used
+      automatically when configured — required for Vercel). Decisions are
+      a Redis hash, the audit log is a Redis list (append-only by
+      construction, same as file mode), approval is a single key. Review
+      state is still tied to the report's `generatedAt` in both backends,
+      so a regenerated report can't silently reuse stale decisions.
+- [x] **`report-store.ts` needed a genuine architecture fix, not just a
+      storage swap**: the deployed "server" service's file tracer only
+      bundles files reachable from inside its own root (`server/`) —
+      the canonical `data/annotated/` at the repo root, one level up, isn't
+      reachable at runtime there. Fixed by making `server/` a
+      **self-contained package**: `server/data/annotated/` is a checked-in,
+      synced copy of the real pipeline output (`npm run sync-data`
+      refreshes it after re-running Phase 1-3), and `report-store.ts`
+      prefers it when present, falling back to the repo-root copy
+      otherwise — both locally and in a fresh clone work identically.
+      Live redrafts (`/api/redraft`) can't rewrite this checked-in copy at
+      runtime either, so in Redis mode they're stored as an override
+      keyed by variant and merged in when serving the report — file mode
+      keeps rewriting `draft-report.json` directly, unchanged from Phase 5.
+- [x] **Found and fixed a real bug in my own Redis-detection logic** by
+      testing against the actual provisioned resource rather than trusting
+      documentation: `@upstash/redis`'s `Redis.fromEnv()` accepts
+      `UPSTASH_REDIS_REST_URL/TOKEN` *or* falls back to
+      `KV_REST_API_URL/TOKEN` (checked its source directly) — but Vercel's
+      own Marketplace integration (`vercel integration add upstash/
+      upstash-kv`) provisions only the `KV_REST_API_*` names. My first
+      `USE_REDIS` check only looked for the `UPSTASH_*` names, so it would
+      have silently and incorrectly fallen back to file mode on a real,
+      correctly-configured deployment. Fixed to check both, exactly
+      mirroring the client's own fallback behavior.
+- **Found a real, serious problem while investigating unexpected data on a
+  test deployment — not a guess, confirmed with a canary test**: `vercel
+  deploy` from the CLI uploads the local working directory and does **not**
+  reliably honor `.gitignore` for exclusions in this setup. A local-only,
+  gitignored `review-state.json` (containing the user's real first review
+  decision) showed up live on a fresh test deployment. Confirmed
+  definitively by planting a distinctive marker value in the local
+  gitignored file, redeploying, and finding that exact marker served live.
+  **This means the real local `.env` (with the user's real Gemini API key)
+  was almost certainly uploaded to Vercel's build infrastructure during
+  the first few test deployments before this was caught.** Fixed by adding
+  `.vercelignore` (confirmed effective by re-running the same canary test
+  — the marker no longer appeared). Flagged to the user directly:
+  recommended rotating the Gemini key as a precaution. Deliberately did
+  **not** set `GEMINI_API_KEY` on Vercel at all afterward — the deployed
+  app runs on bring-your-own-key only (Settings page) unless the user
+  decides otherwise with a freshly-rotated key added the safe way
+  (`vercel env add`, never a re-uploaded `.env` file).
+- [x] Third-party consent handled correctly: installing the Upstash
+      Marketplace integration required accepting Upstash's own terms/
+      privacy policy in the user's Vercel account — paused and asked
+      before accepting on the user's behalf via the CLI, rather than
+      clicking through a third party's legal terms unprompted.
+- [x] Root `vercel.json` using Vercel Services: `web` (root `web/`, SPA
+      catch-all rewrite to `index.html`) and `server` (root `server/`,
+      entrypoint `src/http/server.ts`, `includeFiles` for its own
+      `data/annotated/`), with top-level rewrites sending `/api/*` to
+      `server` and everything else to `web`.
+- [x] **Verified the live production deployment for real**, not just a
+      successful build: confirmed the app is public (no Deployment
+      Protection blocking normal visitors), then ran a full decide-a-claim
+      round trip against the live API — POSTed a real decision, confirmed
+      it read back correctly on a **separate** request (proving it
+      actually persisted in Redis across invocations, the exact thing that
+      would have silently failed with local files) — then cleaned that
+      test decision out of the real production database afterward.
+      Screenshotted the live site with Playwright: identical rendering to
+      local, zero console errors.
+- Live at https://clinical-variant-report-reviewer.vercel.app

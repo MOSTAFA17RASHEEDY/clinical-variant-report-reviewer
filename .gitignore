@@ -27,3 +27,6 @@ stitch_clinical_variant_report_reviewer.zip
 data/annotated/review-state.json
 data/annotated/audit-log.json
 data/annotated/final-report.json
+
+.vercel
+.env*.local

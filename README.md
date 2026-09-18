@@ -107,6 +107,34 @@ project-wide state (this is a single-sample demo tool, not a multi-tenant
 system), so treat a public deployment as a shared demo, not a private
 workspace.
 
+## Live deployment
+
+Deployed on Vercel using [Services](https://vercel.com/docs/services)
+(`vercel.json` at the repo root): the `web/` frontend and `server/` Express
+API deploy together as one project, `/api/*` routed to the backend.
+
+Vercel's serverless functions have a **read-only filesystem in
+production**, so the review/approve workflow (which needs to actually
+persist decisions) uses free [Upstash Redis](https://upstash.com/) via the
+Vercel Marketplace instead of local JSON files there —
+`server/src/lib/review-store.ts` supports both backends behind the same
+interface, auto-detected by which environment variables are set. Running
+locally with no Redis configured still works exactly as before (local
+files, zero setup); see `PLAN.md` Phase 6 for the full story, including a
+real deployment bug found and fixed (`vercel deploy` uploading local
+gitignored files despite `.gitignore` — fixed with `.vercelignore`) and a
+mismatch between two valid Upstash env var naming conventions.
+
+To deploy your own copy:
+```bash
+cd server && npm run sync-data   # copies data/annotated/ into server/data/annotated/ (see PLAN.md Phase 6 for why)
+vercel link
+vercel integration add upstash/upstash-kv   # provisions free Redis, connects it automatically
+vercel deploy --prod
+```
+No `GEMINI_API_KEY` is set on the deployed project — it runs bring-your-own-key
+only (Settings page) unless you deliberately add one with `vercel env add`.
+
 ## Confirming it's free
 
 - **VEP**: free official Docker image (`ensemblorg/ensembl-vep`), either the

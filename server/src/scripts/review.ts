@@ -11,9 +11,9 @@ import {
   type ClaimDecisionValue,
 } from "../lib/review-workflow.js";
 
-function loadReport() {
+async function loadReport() {
   try {
-    return loadDraftReport();
+    return await loadDraftReport();
   } catch (err) {
     console.error(err instanceof Error ? err.message : err);
     process.exit(1);
@@ -31,9 +31,9 @@ function parseFlags(args: string[]): Record<string, string> {
   return flags;
 }
 
-function cmdList() {
-  const { generatedAt, drafts } = loadReport();
-  const state = loadReviewState(generatedAt);
+async function cmdList() {
+  const { generatedAt, drafts } = await loadReport();
+  const state = await loadReviewState(generatedAt);
   for (const d of drafts) {
     const key = variantKey(d);
     const decision = state.decisions[key];
@@ -45,7 +45,7 @@ function cmdList() {
   }
 }
 
-function cmdDecide(args: string[]) {
+async function cmdDecide(args: string[]) {
   const [key, decisionArg] = args;
   const flags = parseFlags(args.slice(2));
   if (!key || !decisionArg || !flags.reviewer) {
@@ -63,26 +63,26 @@ function cmdDecide(args: string[]) {
     process.exit(1);
   }
 
-  const { generatedAt, drafts } = loadReport();
+  const { generatedAt, drafts } = await loadReport();
   const draft = drafts.find((d) => variantKey(d) === key);
   if (!draft) {
     console.error(`No draft found for ${key}.`);
     process.exit(1);
   }
 
-  const state = loadReviewState(generatedAt);
+  const state = await loadReviewState(generatedAt);
   const { state: newState, auditEntry } = decideClaim(state, draft, decision, flags.reviewer, {
     editedSummary: flags.text,
     note: flags.note,
   });
-  saveReviewState(newState);
-  appendAuditLog(auditEntry);
+  await saveReviewState(newState);
+  await appendAuditLog(auditEntry);
   console.log(`Recorded: ${key} -> ${decision} (by ${flags.reviewer})`);
 }
 
-function cmdStatus() {
-  const { generatedAt, drafts } = loadReport();
-  const state = loadReviewState(generatedAt);
+async function cmdStatus() {
+  const { generatedAt, drafts } = await loadReport();
+  const state = await loadReviewState(generatedAt);
   const result = checkApproval(state, drafts);
   if (result.canApprove) {
     console.log("READY TO APPROVE — all significant claims have been reviewed.");
@@ -92,19 +92,19 @@ function cmdStatus() {
   }
 }
 
-function cmdApprove(args: string[]) {
+async function cmdApprove(args: string[]) {
   const flags = parseFlags(args);
   if (!flags.reviewer || !flags.attest) {
     console.error('Usage: review approve --reviewer "Name" --attest "<exact required attestation text>"');
     console.error(`Required text: "${REQUIRED_ATTESTATION_TEXT}"`);
     process.exit(1);
   }
-  const { generatedAt, drafts } = loadReport();
-  const state = loadReviewState(generatedAt);
+  const { generatedAt, drafts } = await loadReport();
+  const state = await loadReviewState(generatedAt);
   try {
     const { state: newState, auditEntry } = approveReport(state, drafts, flags.reviewer, flags.attest);
-    saveReviewState(newState);
-    appendAuditLog(auditEntry);
+    await saveReviewState(newState);
+    await appendAuditLog(auditEntry);
     console.log(`APPROVED by ${flags.reviewer} at ${newState.approval!.approvedAt}`);
   } catch (err) {
     console.error(`Approval failed: ${err instanceof Error ? err.message : err}`);
@@ -112,9 +112,9 @@ function cmdApprove(args: string[]) {
   }
 }
 
-function cmdFinalize() {
-  const { generatedAt, drafts } = loadReport();
-  const state = loadReviewState(generatedAt);
+async function cmdFinalize() {
+  const { generatedAt, drafts } = await loadReport();
+  const state = await loadReviewState(generatedAt);
   try {
     const final = buildFinalReport(state, drafts);
     fs.writeFileSync(FINAL_REPORT_PATH, JSON.stringify(final, null, 2));
@@ -126,20 +126,20 @@ function cmdFinalize() {
   }
 }
 
-function cmdAudit() {
-  for (const entry of readAuditLog()) {
+async function cmdAudit() {
+  for (const entry of await readAuditLog()) {
     console.log(`${entry.timestamp}  ${entry.reviewer.padEnd(16)} ${entry.action}${entry.variantKey ? " " + entry.variantKey : ""}`);
   }
 }
 
 const [, , command, ...rest] = process.argv;
 switch (command) {
-  case "list": cmdList(); break;
-  case "decide": cmdDecide(rest); break;
-  case "status": cmdStatus(); break;
-  case "approve": cmdApprove(rest); break;
-  case "finalize": cmdFinalize(); break;
-  case "audit": cmdAudit(); break;
+  case "list": await cmdList(); break;
+  case "decide": await cmdDecide(rest); break;
+  case "status": await cmdStatus(); break;
+  case "approve": await cmdApprove(rest); break;
+  case "finalize": await cmdFinalize(); break;
+  case "audit": await cmdAudit(); break;
   default:
     console.error("Usage: review <list|decide|status|approve|finalize|audit>");
     process.exit(1);
