@@ -285,7 +285,63 @@ context.
 
 ## Phase 4 — Human-in-the-loop safeguards
 
-Not started.
+- [x] `server/src/lib/review-workflow.ts` — the actual enforcement point for
+      the project's core safety rule. Key design decisions:
+      - **Fails closed by default**: an undecided claim blocks approval —
+        "we didn't get to it" is never treated as "reviewed and fine."
+      - **Approval requires an exact typed attestation string**
+        (`REQUIRED_ATTESTATION_TEXT`, the same text Phase 5's UI will show
+        as a checkbox/confirmation), not a boolean flag — makes the action
+        deliberate rather than a casual toggle, and the exact wording
+        itself states plainly this is a portfolio/demo tool, tying the
+        required disclaimer directly into the approval gate instead of
+        just a passive footer.
+      - **`buildFinalReport` is the only code path that assembles a
+        "final" report shape, and it throws if `state.approval` isn't
+        set** — there's no other way in this codebase to produce a
+        finalized report, so Phase 5's UI can't accidentally bypass the
+        gate by reassembling the pieces itself.
+      - Edited claims keep the AI's `originalSummary` alongside the
+        reviewer's `editedSummary` — never silently overwritten, so the
+        audit trail can always show what changed.
+      - Rejected claims are excluded from the final report body but stay
+        fully visible in `excludedByReviewer` and the audit log — "removed
+        from the report" is not the same as "hidden from the record."
+      - `PORTFOLIO_DISCLAIMER` is carried into the final report output
+        itself, not just the draft — approval never removes the
+        not-a-clinical-device disclaimer.
+- [x] **Tested the safety gate by actually trying to break it**, not just
+      the happy path (`test-review-workflow.ts`, 11 assertions, all
+      passing): can't finalize before any review, can't approve with
+      claims still undecided, can't approve with a wrong/casual
+      attestation string, still can't finalize after a failed approval
+      attempt, and — once genuinely approved — the final report correctly
+      uses edited text over original AI text and excludes rejected claims.
+- [x] `server/src/lib/review-store.ts` — persists review state
+      (`data/annotated/review-state.json`) and an append-only audit log
+      (`data/annotated/audit-log.json`, no delete/edit function exists for
+      it). Review state is tied to the report's `generatedAt` timestamp —
+      loading it against a since-regenerated report (different AI text)
+      refuses outright rather than silently reusing stale decisions.
+- [x] `server/src/scripts/review.ts` (`npm run review -- <list|decide|
+      status|approve|finalize|audit>`) — CLI workflow standing in for
+      Phase 5's UI for now.
+- [x] **Ran a full real test cycle against the real 39 drafted claims** to
+      prove the gates hold outside of fixtures too: listed all 39 as
+      PENDING, confirmed `status` correctly blocked approval, decided all
+      39 (35 accepted, 2 edited with real reviewer corrections, 2 rejected
+      with reasons), confirmed `finalize` still refused before approval and
+      `approve` still refused a casual attestation string, then approved
+      for real and finalized — 37 variants in the final report, 2 correctly
+      excluded, full timestamped audit trail. **This test run used a
+      placeholder reviewer name and decisions I made myself to prove the
+      workflow end-to-end — not a genuine review by the user** — so the
+      test's `review-state.json`/`audit-log.json`/`final-report.json` were
+      deleted afterward rather than committed, to avoid the repo shipping a
+      fake "approved" report that could be mistaken for a real one.
+      `data/annotated/review-state.json`, `audit-log.json`, and
+      `final-report.json` are gitignored going forward — they're live,
+      per-user runtime state, not fixed pipeline output.
 
 ## Phase 5 — Real UI + polish
 
